@@ -33,7 +33,7 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Clean up APT when done.
 # ----------------------------------------------------------------------------
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get autoclean && apt-get autoremove --purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Copy the entrypoint script
 # ----------------------------------------------------------------------------
