@@ -11,6 +11,8 @@ RUN mkdir /tftp
 
 WORKDIR /tftp
 
+EXPOSE 53
+
 RUN wget $MIRROR/debian/dists/$DIST/main/installer-$ARCH/current/images/netboot/debian-installer/$ARCH/pxelinux.0
 RUN mkdir pxelinux.cfg
 
@@ -21,10 +23,13 @@ CMD \
     /pipework --wait &&\
     myIP=$(ip addr show dev eth1 | awk -F '[ /]+' '/global/ {print $3}') &&\
     mySUBNET=$(echo $myIP | cut -d '.' -f 1,2,3) &&\
-    printf "DEFAULT vmlinuz\nKERNEL vmlinuz\nAPPEND initrd=initrd.img ip=dhcp tapos_tftp=$myIP\n" > pxelinux.cfg/default &&\
+    printf "DEFAULT vmlinuz\nKERNEL vmlinuz\nAPPEND initrd=initrd.img ip=dhcp tftp=$myIP\n" > pxelinux.cfg/default &&\
     echo Starting DHCP+TFTP server...&&\
     dnsmasq --interface=eth1 \
     	    --dhcp-range=$mySUBNET.101,$mySUBNET.199,255.255.255.0,1h \
 	    --dhcp-boot=pxelinux.0,pxeserver,$myIP \
 	    --pxe-service=x86PC,"Install Linux",pxelinux \
-	    --enable-tftp --tftp-root=/tftp/ --no-daemon
+	    --enable-tftp --tftp-root=/tftp/ \
+	    --dhcp-option=6,$myIP \
+	    --host-record=pxe,$myIP \
+	    --no-daemon
