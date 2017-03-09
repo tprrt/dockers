@@ -5,7 +5,7 @@ RUN apt-get update
 # To install packages required to enable the connectivity
 # ----------------------------------------------------------------------------
 
-RUN apt-get install -y --no-install-recommends iproute2 iputils-ping openssh-client git
+RUN apt-get install -y --no-install-recommends iproute2	iputils-ping openssh-client git
 
 # To install packages required to build Yocto
 # ----------------------------------------------------------------------------
@@ -16,6 +16,11 @@ RUN apt-get install -y --no-install-recommends file cpio gawk wget git-core diff
 # ----------------------------------------------------------------------------
 
 RUN apt-get install -y --no-install-recommends python3 cryptsetup
+
+# To install packages require to run Qemu
+# ----------------------------------------------------------------------------
+
+RUN apt-get install -y --no-install-recommends iptables sudo
 
 # To install packages required to reduce the build's time
 # ----------------------------------------------------------------------------
