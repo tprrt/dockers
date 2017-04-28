@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # Enable ccache
 export USE_CCACHE=1
 export CCACHE_DIR=${HOME}/.ccache
@@ -25,26 +27,18 @@ useradd --shell /bin/bash -u ${USER_ID} -m ${USER_NAME} --home ${USER_HOME} --gr
 # Edit sudoer to add NOPASSWD attribut at the user permission
 echo "${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers || { echo "Unable to edit sudoer" ; exit 1 ; }
 
-# Switch to the local user
-su - ${USER_NAME} || { echo "Unable to swith to the local user" ; exit 1 ; }
-
 # Download source
 URI=${URI:-git@github.com:tprrt/exiguous-manifest.git}
 BRANCH=${BRANCH:-master}
 MANIFEST=${MANIFEST:-default.xml}
 
-# Fetch sources
+# Start Toaster service
+su - ${USER_NAME} <<EOF
 repo init -u $URI -b $BRANCH -m $MANIFEST || { echo "Unable to init the repo" ; exit 1 ; }
 repo sync --force-sync || { echo "Unable to synchronize the repo" ; exit 1 ; }
-
-# Initialize the environment
 virtualenv venv || { echo "Unable to create the virtualenv" ; exit 1 ; }
 source venv/bin/activate || { echo "Unable to activate the virtualenv" ; exit 1 ; }
-
-# Install toaster requirements
 pip install -r ./exiguous/bitbake/toaster-requirements.txt || { echo "Unable to install Toaster requirements" ; exit 1 ; }
-
-# Start Toaster service
 source exiguous-init-build-env || { echo "Unable to source environment" ; exit 1 ; }
-
 TOASTER_CONF="../exiguous/meta-tprrt/meta-exiguous/conf/toasterconf.json" source ../exiguous/bitbake/bin/toaster webport="8000" || { echo "Unable to start Toaster" ; exit 1 ; }
+EOF

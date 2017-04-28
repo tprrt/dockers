@@ -7,6 +7,16 @@ RUN apt-get update
 
 RUN apt-get install -y --no-install-recommends iproute2 iputils-ping openssh-client git
 
+# To install packages required to build Yocto
+# ----------------------------------------------------------------------------
+
+RUN apt-get install -y --no-install-recommends file cpio gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat python
+
+# To install packages require to run Qemu
+# ----------------------------------------------------------------------------
+
+RUN apt-get install -y --no-install-recommends iptables sudo
+
 # To install packages required to run Python
 # ----------------------------------------------------------------------------
 
@@ -35,6 +45,7 @@ RUN dpkg-reconfigure -f noninteractive tzdata
 
 # Clean up APT when done.
 # ----------------------------------------------------------------------------
+
 RUN apt-get autoclean && apt-get autoremove --purge && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Create the workdir
@@ -53,3 +64,4 @@ EXPOSE 8000
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+

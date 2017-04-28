@@ -5,12 +5,12 @@ RUN apt-get update
 # To install packages required to enable the connectivity
 # ----------------------------------------------------------------------------
 
-RUN apt-get install -y --no-install-recommends iproute2	iputils-ping openssh-client git
+RUN apt-get install -y --no-install-recommends iproute2 iputils-ping openssh-client git
 
 # To install packages required to build Yocto
 # ----------------------------------------------------------------------------
 
-RUN apt-get install -y --no-install-recommends file cpio gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat python2.7
+RUN apt-get install -y --no-install-recommends file cpio gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat python
 
 # To install packages required to build Exiguous images
 # ----------------------------------------------------------------------------
@@ -22,11 +22,14 @@ RUN apt-get install -y --no-install-recommends python3 cryptsetup
 
 RUN apt-get install -y --no-install-recommends iptables sudo
 
-# To install packages required to reduce the build's time
+# To install packages required to improve performance
 # ----------------------------------------------------------------------------
 
 RUN apt-get install -y --no-install-recommends ccache prelink preload
 RUN prelink -amvR
+RUN export USE_CCACHE=1
+RUN export CCACHE_DIR=$HOME/.ccache
+RUN export PATH="/usr/lib/ccache/:$PATH"
 
 # To install repo
 # ----------------------------------------------------------------------------
