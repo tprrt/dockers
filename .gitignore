@@ -1,2 +1,8 @@
 # emacs noise
 *~
+
+# docutils noise
+*.html
+*.tex
+*.pdf
+*.odt
