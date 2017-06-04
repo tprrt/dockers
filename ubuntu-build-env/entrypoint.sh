@@ -20,9 +20,15 @@ USER_NAME=${LOCAL_USER_NAME:-user}
 USER_GROUPS="users,sudo,dialout,kvm"
 USER_HOME=/home/${USER_NAME}
 
+# Create the user
 useradd --shell /bin/bash -u ${USER_ID} -m ${USER_NAME} --home ${USER_HOME} --groups ${USER_GROUPS} \
-	|| { echo "Unable to add the local user" ; exit 1 ; }
+    || echo "${USER_NAME} Already exist"
 
+# Check the user id
+if [[ "$(cat /etc/passwd|grep ${USER_NAME}|cut -f3 -d":")" != "${USER_ID}" ]] ; then
+    echo "Unable to add the local user"
+    exit 1
+fi
 
 # Edit sudoer to add NOPASSWD attribut at the user permission
 echo "${USER_NAME} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers || { echo "Unable to edit sudoer" ; exit 1 ; }
