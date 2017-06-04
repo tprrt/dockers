@@ -17,10 +17,15 @@ RUN apt-get install -y --no-install-recommends file cpio gawk wget git-core diff
 
 RUN apt-get install -y --no-install-recommends python3 cryptsetup
 
-# To install packages require to run Qemu
+# To install packages required to run Qemu
 # ----------------------------------------------------------------------------
 
 RUN apt-get install -y --no-install-recommends iptables sudo
+
+# To install packages required to run testsdk
+# ----------------------------------------------------------------------------
+
+RUN apt-get install -y --no-install-recommends ca-certificates
 
 # To install packages required to improve performance
 # ----------------------------------------------------------------------------
@@ -41,7 +46,7 @@ RUN chmod a+x /usr/local/bin/repo
 # ----------------------------------------------------------------------------
 
 RUN echo -n "Europe/Paris" > /etc/timezone
-RUN dpkg-reconfigure -f noninteractive tzdata
+RUN dpkg-reconfigure -f noninteractive tzdata locales
 
 # Clean up APT when done.
 # ----------------------------------------------------------------------------

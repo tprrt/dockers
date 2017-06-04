@@ -23,7 +23,7 @@ CMD \
     /pipework --wait &&\
     myIP=$(ip addr show dev eth1 | awk -F '[ /]+' '/global/ {print $3}') &&\
     mySUBNET=$(echo $myIP | cut -d '.' -f 1,2,3) &&\
-    printf "DEFAULT vmlinuz\nKERNEL vmlinuz\nAPPEND initrd=initrd.img ip=dhcp tftp=$myIP\n" > pxelinux.cfg/default &&\
+    printf "DEFAULT vmlinuz\nKERNEL vmlinuz\nAPPEND initrd=initrd.img ip=dhcp\n" > pxelinux.cfg/default &&\
     echo Starting DHCP+TFTP server...&&\
     dnsmasq --interface=eth1 \
     	    --dhcp-range=$mySUBNET.101,$mySUBNET.199,255.255.255.0,1h \
