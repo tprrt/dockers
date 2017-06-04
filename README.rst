@@ -42,8 +42,8 @@ How to run the built container, from this folder:
    docker exec -ti $TOASTERCID /bin/bash
 
 
-OE Toaster server container
-============================
+PXE server container
+====================
 
 How to build the container, from this folder:
 
