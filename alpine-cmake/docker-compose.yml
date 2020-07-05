@@ -1,0 +1,21 @@
+version: "2.3"
+
+services:
+    alpine-cmake-builder:
+        privileged: false
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: alpine-cmake-builder
+        container_name: alpine-cmake-builder
+        environment:
+            LOCAL_USER_ID: ${LOCAL_USER_ID}
+            LOCAL_USER_NAME: ${USER}
+        volumes:
+            - /home/${USER}:/home/${USER}/
+        security_opt:
+            - seccomp:unconfined
+        cap_add:
+            - SYS_PTRACE
+        stdin_open: true
+        tty: true
