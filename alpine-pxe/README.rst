@@ -1,17 +1,22 @@
 PXE server container
 --------------------
 
-How to build the container, from this folder:
+The image intends at providing a PXE/TFTP server to boot a device station from
+network.
 
 ::
 
-   docker build -t pxe-server ./alpine-pxe
+    # Build the docker image
+    docker-compose build
 
+    # Launch the container
+    docker-compose up [-d]
 
-How to run the built container, from this folder:
+    # Verify the network configuration
+    docker network inspect alpine-pxe-network
 
-::
+    # Bind the container to the host interface
+    brctl addif br-<NETWORK ID> <host_device>
 
-   PXECID=$(docker run --cap-add NET_ADMIN  -v ~/tftp/:/tftp/ -d pxe-server)
-   ./pipework br0 $PXECID 192.168.242.1/24
-   docker exec -ti $PXECID /bin/sh
+    # Open the build environment
+    docker-compose exec alpine-pxe /bin/bash

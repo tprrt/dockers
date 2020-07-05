@@ -1,0 +1,25 @@
+version: "2.3"
+
+services:
+    alpine-pxe:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        image: alpine-pxe
+        container_name: alpine-pxe
+        networks:
+            - alpine-pxe-network
+        ports:
+            - "67:67"
+            - "68:68"
+            - "69:69"
+            - "4011:4011"
+        cap_add:
+            - NET_ADMIN
+        stdin_open: true
+        tty: true
+
+networks:
+    alpine-pxe-network:
+        name: alpine-pxe-network
+        driver: bridge

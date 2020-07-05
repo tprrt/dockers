@@ -10,4 +10,3 @@ A collection of Dockerfiles and docker-compuse's configuration files:
 
 - alpine-cmake
 - alpine-pxe
-- ubuntu-build-env
