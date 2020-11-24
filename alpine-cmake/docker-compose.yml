@@ -14,7 +14,7 @@ services:
         volumes:
             - /home/${USER}:/home/${USER}/
         security_opt:
-            - seccomp:unconfined
+            - seccomp=unconfined
         cap_add:
             - SYS_PTRACE
         stdin_open: true
