@@ -5,14 +5,12 @@ A container to build quickly projects using cmake, gcc, clang and essential buil
 
 ::
 
-    # Set required environment variables
-    export LOCAL_USER_ID=$(id -u ${USER})
- 
-    # Build the docker image
-    docker-compose build
+    podman build -t alpine-cmake:latest -f ./Dockerfile .
  
     # Launch the container
-    docker-compose up -d
- 
-    # Open the build environment
-    docker-compose exec -u ${USER} alpine-cmake-builder /bin/bash
+    cd <src>
+    podman run --rm -i -t --security-opt seccomp=unconfined --security-opt label=disable --userns=keep-id --mount type=bind,source=$(pwd),target=/src --workdir /src alpine-cmake
+
+    # Stop the container
+    podman container stop -t=1 alpine-cmake
+    podman container rm alpine-cmake

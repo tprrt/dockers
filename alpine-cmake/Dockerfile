@@ -1,18 +1,12 @@
 FROM alpine:3.12
-
 LABEL maintainer thomas.perrot@tupi.fr
 
-# To install packages required
-# -----------------------------------------------------------------------------
-
-RUN apk add --no-cache --update bash cmake cmake clang clang-dev make gcc g++ gdb libc-dev linux-headers shadow \
+RUN apk add --no-cache --update bash clang clang-dev cmake gcc g++ gdb libc-dev linux-headers make shadow \
     && rm -rf /var/cache/apk/*
 
-# Copy the entrypoint script
-# ----------------------------------------------------------------------------
+RUN apkArch="$(apk --print-arch)" ; \
+    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_${apkArch} \
+    && chmod +x /usr/local/bin/dumb-init
 
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh", "/bin/bash"]
+ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
+CMD ["/bin/bash"]
