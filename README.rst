@@ -6,7 +6,7 @@
 Dockerfiles collection
 ======================
 
-A collection of Dockerfiles and docker-compuse's configuration files:
+A collection of Dockerfiles:
 
-- alpine-cmake
-- alpine-pxe
+- alpine-cmake: An environment to compile C source with cmake and to debug it with gdb.
+- alpine-pxe: A PXE/TFTP server to boot a target from the network.
