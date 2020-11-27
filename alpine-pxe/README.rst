@@ -1,22 +1,28 @@
-PXE server container
---------------------
+PXE/TFTP server
+---------------
 
-The image intends at providing a PXE/TFTP server to boot a device station from
-network.
+A PXE/TFTP server to boot a target from the network.
 
 ::
 
-    # Build the docker image
-    docker-compose build
+    podman build -t alpine-pxe:latest -f ./Dockerfile .
 
     # Launch the container
-    docker-compose up [-d]
+    cd <pxelinux.cfg>
+    podman run --rm -i -t --cap-add=NET_ADMIN,NET_RAW --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg alpine-pxe
 
-    # Verify the network configuration
-    docker network inspect alpine-pxe-network
+    # Stop the container
+    podman container stop -t=1 alpine-pxe
+    podman container rm alpine-pxe
 
-    # Bind the container to the host interface
-    brctl addif br-<NETWORK ID> <host_device>
+Following an example for /tftp/pxelinux.cfg/default:
 
-    # Open the build environment
-    docker-compose exec alpine-pxe /bin/bash
+::
+
+    PROMPT 0
+    TIMEOUT 3
+    DEFAULT install
+    LABEL install
+    LINUX vmlinuz
+    INITRD image
+    APPEND ip=dhcp panic=1 rootdelay=10 root=/dev/mmcblk0

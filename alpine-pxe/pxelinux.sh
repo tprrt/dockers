@@ -110,16 +110,13 @@ if [ ! -d "/tftp" ] && [ -z "${_ENV['DRYRUN']}" ] ; then
 fi
 
 # Get network information
-_ENV['IP']=$(ip addr show dev eth0 | awk -F '[ /]+' '/global/ {print $3}')
+_ENV['IP']=$(ip addr show dev tap0 | awk -F '[ /]+' '/global/ {print $3}')
 _ENV['SUBNET']=$(echo ${_ENV['IP']} | cut -d '.' -f 1,2,3)
 
 # Configure iptables
 _exec "iptables -t nat -A POSTROUTING -j MASQUERADE" || _die "Unable to configure iptables"
 
-_exec "cp /tmp/syslinux-4.07/core/pxelinux.0 /tftp/pxelinux.0" \
-    || _die "Unable to copy pxelinux binary"
-
-_exec "dnsmasq --interface=eth0 \
+_exec "dnsmasq --interface=tap0 \
         --dhcp-range=${_ENV['SUBNET']}.101,${_ENV['SUBNET']}.199,255.255.255.0,1h \
         --dhcp-boot=pxelinux.0,pxeserver,${_ENV['IP']} \
         --pxe-service=x86PC,\"Install Linux\",pxelinux \
