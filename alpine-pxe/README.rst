@@ -5,15 +5,15 @@ A PXE/TFTP server to boot a target from the network.
 
 ::
 
-    podman build -t alpine-pxe:latest -f ./Dockerfile .
+    podman build -t tprrt/alpine-pxe:latest -f ./Dockerfile .
 
     # Launch the container
     cd <pxelinux.cfg>
-    podman run --rm -i -t --cap-add=NET_ADMIN,NET_RAW --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg alpine-pxe
+    podman run --rm -i -t --cap-add=NET_ADMIN,NET_RAW --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg tprrt/alpine-pxe
 
     # Stop the container
-    podman container stop -t=1 alpine-pxe
-    podman container rm alpine-pxe
+    podman container stop -t=1 tprrt/alpine-pxe
+    podman container rm tprrt/alpine-pxe
 
 Following an example for /tftp/pxelinux.cfg/default:
 
