@@ -8,7 +8,7 @@ RUN apkArch="$(apk --print-arch)" ; \
     wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_${apkArch} \
     && chmod +x /usr/local/bin/dumb-init
 
-RUN useradd -m devuser
+RUN adduser -D devuser
 
 USER devuser
 
