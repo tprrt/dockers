@@ -1,7 +1,7 @@
 Buildroot container
 -------------------
 
-A container to build a complete Linux system with the Buildroot framework.
+A container to build a complete Linux system with the `Buildroot`_ framework.
 
 ::
 
@@ -14,3 +14,5 @@ A container to build a complete Linux system with the Buildroot framework.
     # Stop the container
     podman container stop -t=1 tprrt/debian-buildroot
     podman container rm tprrt/debian-buildroot
+
+.. _Buildroot: https://buildroot.org

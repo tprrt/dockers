@@ -1,0 +1,189 @@
+orbs:
+  docker: circleci/docker@1.5.0
+version: 2.1
+workflows:
+  version: 2
+  build:
+    jobs:
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/alpine-cmake:latest"
+          image: "tprrt/alpine-cmake"
+          path: alpine-cmake
+          docker-context: alpine-cmake
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/alpine-pxe:latest"
+          image: "tprrt/alpine-pxe"
+          path: alpine-pxe
+          docker-context: alpine-pxe
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-buildroot:latest"
+          image: "tprrt/debian-buildroot"
+          path: debian-buildroot
+          docker-context: debian-buildroot
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-cross:latest"
+          image: "tprrt/debian-cross"
+          path: debian-cross
+          docker-context: debian-cross
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-oe:latest"
+          image: "tprrt/debian-oe"
+          path: debian-oe
+          docker-context: debian-oe
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+  build-publish:
+    jobs:
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/alpine-cmake:latest"
+          image: "tprrt/alpine-cmake"
+          path: alpine-cmake
+          docker-context: alpine-cmake
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/alpine-pxe:latest"
+          image: "tprrt/alpine-pxe"
+          path: alpine-pxe
+          docker-context: alpine-pxe
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-buildroot:latest"
+          image: "tprrt/debian-buildroot"
+          path: debian-buildroot
+          docker-context: debian-buildroot
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-cross:latest"
+          image: "tprrt/debian-cross"
+          path: debian-cross
+          docker-context: debian-cross
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-oe:latest"
+          image: "tprrt/debian-oe"
+          path: debian-oe
+          docker-context: debian-oe
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true

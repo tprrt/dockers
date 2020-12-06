@@ -1,7 +1,7 @@
 PXE/TFTP server
 ---------------
 
-A PXE/TFTP server to boot a target from the network.
+A `PXE`_/`TFTP`_ server to boot a target from the network.
 
 ::
 
@@ -26,3 +26,7 @@ Following an example for /tftp/pxelinux.cfg/default:
     LINUX vmlinuz
     INITRD image
     APPEND ip=dhcp panic=1 rootdelay=10 root=/dev/mmcblk0
+
+
+.. _PXE: https://en.wikipedia.org/wiki/Preboot_Execution_Environment
+.. _TFTP: https://en.wikipedia.org/wiki/Trivial_File_Transfer_Protocol
