@@ -19,13 +19,15 @@ RUN apt update \
         g++-9 \
         libncurses5-dev \
         libncursesw5-dev \
+        locales \
         make \
         patch \
         perl \
-	python3 \
+        python3 \
         rsync \
         sed \
         tar \
+        tzdata \
         unzip \
         wget \
     && apt-get autoclean \
@@ -36,7 +38,13 @@ RUN apt update \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10 \
     && echo -n "Europe/Paris" > /etc/timezone \
-    && dpkg-reconfigure -f noninteractive tzdata
+    && dpkg-reconfigure -f noninteractive tzdata \
+    && apt-get purge locales-all \
+    && dpkg-reconfigure -f noninteractive locales \
+    && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
+    && echo "en_US.UTF-8 UTF-8" > /etc/default/locale \
+    && locale-gen en_US.UTF-8 \
+    && update-locale
 
 RUN useradd -m devuser
 
