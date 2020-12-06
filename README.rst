@@ -24,6 +24,7 @@ A collection of Dockerfiles can be used with `Podman`_:
 .. _alpine-pxe: https://hub.docker.com/repository/docker/tprrt/alpine-pxe
 .. _debian-buildroot: https://hub.docker.com/repository/docker/tprrt/debian-buildroot
 .. _debian-cross: https://hub.docker.com/repository/docker/tprrt/debian-cross
+.. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 
 .. _Buildroot: https://buildroot.org
 .. _crops/yocto : https://hub.docker.com/r/crops/yocto
