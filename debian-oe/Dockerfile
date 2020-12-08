@@ -16,6 +16,7 @@ RUN apt update \
         gawk \
         gcc-multilib \
         git \
+        iproute2 \
         iputils-ping \
         libegl1-mesa \
         libsdl1.2-dev \
@@ -29,6 +30,7 @@ RUN apt update \
         python3-subunit \
         python3-testtools \
         socat \
+        sudo \
         texinfo \
         tzdata \
         unzip \
@@ -46,7 +48,8 @@ RUN apt update \
     && locale-gen en_US.UTF-8 \
     && update-locale
 
-RUN useradd -m devuser
+RUN useradd -m devuser \
+    && echo "devuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER devuser
 

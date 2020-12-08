@@ -110,14 +110,16 @@ if [ ! -d "/tftp" ] && [ -z "${_ENV['DRYRUN']}" ] ; then
 fi
 
 # Get network information
-_ENV['IP']=$(ip addr show dev tap0 | awk -F '[ /]+' '/global/ {print $3}')
-_ENV['SUBNET']=$(echo ${_ENV['IP']} | cut -d '.' -f 1,2,3)
+_ENV['IP']=$(ip addr show dev tap0 | awk -F '[ /]+' '/global/ {print $3}' | head -1)
 
 # Configure iptables
 _exec "iptables -t nat -A POSTROUTING -j MASQUERADE" || _die "Unable to configure iptables"
 
-_exec "dnsmasq --interface=tap0 \
-        --dhcp-range=${_ENV['SUBNET']}.101,${_ENV['SUBNET']}.199,255.255.255.0,1h \
+_exec "dnsmasq \
+        --log-dhcp \
+        --dhcp-no-override \
+        --interface=tap0 \
+        --dhcp-range=${_ENV['IP']},proxy \
         --dhcp-boot=pxelinux.0,pxeserver,${_ENV['IP']} \
         --pxe-service=x86PC,\"Install Linux\",pxelinux \
         --enable-tftp --tftp-root=/tftp \
