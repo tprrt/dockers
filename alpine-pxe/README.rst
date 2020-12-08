@@ -9,7 +9,10 @@ A `PXE`_/`TFTP`_ server to boot a target from the network.
 
     # Launch the container
     cd <pxelinux.cfg>
-    podman run --rm -i -t --cap-add=NET_ADMIN,NET_RAW --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg tprrt/alpine-pxe
+    podman run --rm -i -t \
+        --cap-add=NET_ADMIN  --cap-add=NET_RAW \
+        --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg \
+        tprrt/alpine-pxe
 
     # Stop the container
     podman container stop -t=1 tprrt/alpine-pxe
