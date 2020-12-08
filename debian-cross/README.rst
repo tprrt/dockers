@@ -9,7 +9,12 @@ A container to cross-compile and test projects for armv7, aarch64 or riscv64 tar
 
     # Launch the container
     cd <src>
-    podman run --rm -i -t --security-opt seccomp=unconfined --security-opt label=disable --userns=keep-id --mount type=bind,source=$(pwd),target=/src --workdir /src tprrt/debian-cross
+    podman run --rm -i -t \
+        --security-opt seccomp=unconfined --security-opt label=disable \
+        --userns=keep-id \
+        --mount type=bind,source=$(pwd),target=/src \
+        --workdir /src \
+        tprrt/debian-cross
 
     # Stop the container
     podman container stop -t=1 tprrt/debian-cross
