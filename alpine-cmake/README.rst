@@ -9,7 +9,12 @@ A container to build quickly projects using cmake, gcc, clang and essential buil
 
     # Launch the container
     cd <src>
-    podman run --rm -i -t --security-opt seccomp=unconfined --security-opt label=disable --userns=keep-id --mount type=bind,source=$(pwd),target=/src --workdir /src tprrt/alpine-cmake
+    podman run --rm -i -t \
+        --security-opt seccomp=unconfined --security-opt label=disable \
+	--userns=keep-id \
+	--mount type=bind,source=$(pwd),target=/src \
+	--workdir /src \
+	tprrt/alpine-cmake
 
     # Stop the container
     podman container stop -t=1 tprrt/alpine-cmake
