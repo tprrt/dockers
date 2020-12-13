@@ -3,7 +3,26 @@ LABEL maintainer thomas.perrot@tupi.fr
 
 RUN apt update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends bash bc build-essential ca-certificates cpio dumb-init file flex ipxe-qemu libncurses5-dev libncursesw5-dev libssl-dev qemu qemu-system-aarch64 qemu-system-arm qemu-system-riscv64 qemu-user-static strace wget \
+    && apt install -y --no-install-recommends \
+        bash \
+	bc \
+	build-essential \
+	ca-certificates \
+	cpio \
+	dumb-init \
+	file \
+	flex \
+	ipxe-qemu \
+	libncurses5-dev \
+	libncursesw5-dev \
+	libssl-dev \
+	qemu \
+	qemu-system-aarch64 \
+	qemu-system-arm \
+	qemu-system-riscv64 \
+	qemu-user-static \
+	strace \
+	wget \
     && apt-get autoclean \
     && apt-get autoremove --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
