@@ -1,7 +1,13 @@
 FROM alpine:3.12
 LABEL maintainer thomas.perrot@tupi.fr
 
-RUN apk add --no-cache --update bash dnsmasq iptables syslinux tar wget \
+RUN apk add --no-cache --update \
+    bash \
+    dnsmasq \
+    iptables  \
+    syslinux \
+    tar \
+    wget \
     && rm -rf /var/cache/apk/*
 
 RUN mkdir -p /tftp/pxelinux.cfg \
