@@ -18,9 +18,11 @@ RUN apt update \
         git \
         iproute2 \
         iputils-ping \
+        iptables \
         libegl1-mesa \
         libsdl1.2-dev \
         locales \
+        procps \
         pylint3 \
         python3 \
         python3-git \
@@ -29,6 +31,7 @@ RUN apt update \
         python3-pexpect \
         python3-subunit \
         python3-testtools \
+        openssh-client \
         socat \
         sudo \
         texinfo \
@@ -47,6 +50,8 @@ RUN apt update \
     && echo "en_US.UTF-8 UTF-8" > /etc/default/locale \
     && locale-gen en_US.UTF-8 \
     && update-locale
+
+RUN mkdir /tmp/qemu-tap-locks && touch /tmp/qemu-tap-locks/tap0.skip
 
 RUN useradd -m devuser \
     && echo "devuser ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

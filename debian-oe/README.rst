@@ -16,6 +16,7 @@ A container to build a complete Linux system with the`OpenEmbedded`_ framework.
         --device /dev/kvm \
         --device /dev/net/tun \
         --device /dev/vhost-net \
+        --volume ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         tprrt/debian-oe
