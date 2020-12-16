@@ -35,6 +35,7 @@ RUN apt update \
         socat \
         sudo \
         texinfo \
+        tmux \
         tzdata \
         unzip \
         wget \
