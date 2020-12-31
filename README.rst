@@ -2,6 +2,10 @@
     :alt: Circle badge
     :target: https://app.circleci.com/pipelines/github/tprrt/dockers
 
+.. image:: https://sonarcloud.io/api/project_badges/measure?project=tprrt_dockers&metric=alert_status
+    :alt: Quality Gate Status
+    :target: https://sonarcloud.io/dashboard?id=tprrt_dockers
+
 ======================
 Dockerfiles collection
 ======================
@@ -19,6 +23,12 @@ A collection of Dockerfiles can be used with `Podman`_:
 - `Podman`_ is a daemonless container engine, developped by the `OCI`_ and safer than the `Docker`_ engine.
 - The container `pixiecore`_ is a great alterative to the container `alpine-pxe`_.
 - The `debian-oe`_ is an alternative to the official container `crops/yocto`_
+
+Use the following command to validate the circle-ci pipeline:
+
+::
+
+    podman run --rm --security-opt seccomp=unconfined --security-opt label=disable -v $(pwd):/data circleci/circleci-cli:alpine config validate /data/.circleci/config.yml --token $TOKEN
 
 .. _alpine-cmake: https://hub.docker.com/repository/docker/tprrt/alpine-cmake
 .. _alpine-pxe: https://hub.docker.com/repository/docker/tprrt/alpine-pxe
