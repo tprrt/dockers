@@ -1,15 +1,39 @@
 orbs:
   docker: circleci/docker@1.5.0
+  sonarcloud: sonarsource/sonarcloud@1.0.2
 version: 2.1
+executors:
+  docker-py3-ghp:
+    docker:
+      - image: circleci/python:3.7
+  docker-sonarcloud:
+    docker:
+      - image: circleci/node:buster
+    resource_class: small
+jobs:
+  static-analysis:
+    executor: docker-sonarcloud
+    steps:
+      - checkout
+      - sonarcloud/scan
 workflows:
   version: 2
   build:
     jobs:
+      - static-analysis:
+          filters:
+            branches:
+              ignore:
+                - master
+          context:
+            - sonarcloud.io
       - docker/publish:
           filters:
             branches:
               ignore:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/alpine-cmake:latest"
@@ -28,6 +52,8 @@ workflows:
             branches:
               ignore:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/alpine-pxe:latest"
@@ -46,6 +72,8 @@ workflows:
             branches:
               ignore:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/debian-buildroot:latest"
@@ -64,6 +92,8 @@ workflows:
             branches:
               ignore:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/debian-cross:latest"
@@ -82,6 +112,8 @@ workflows:
             branches:
               ignore:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/debian-oe:latest"
@@ -97,11 +129,20 @@ workflows:
           deploy: false
   build-publish:
     jobs:
+      - static-analysis:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - sonarcloud.io
       - docker/publish:
           filters:
             branches:
               only:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/alpine-cmake:latest"
@@ -120,6 +161,8 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/alpine-pxe:latest"
@@ -138,6 +181,8 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/debian-buildroot:latest"
@@ -156,6 +201,8 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/debian-cross:latest"
@@ -174,6 +221,8 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - static-analysis
           context:
             - docker.io
           cache_from: "tprrt/debian-oe:latest"
