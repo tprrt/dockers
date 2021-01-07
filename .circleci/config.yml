@@ -116,6 +116,26 @@ workflows:
             - static-analysis
           context:
             - docker.io
+          cache_from: "tprrt/debian-latex:latest"
+          image: "tprrt/debian-latex"
+          path: debian-latex
+          docker-context: debian-latex
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
           cache_from: "tprrt/debian-oe:latest"
           image: "tprrt/debian-oe"
           path: debian-oe
@@ -209,6 +229,26 @@ workflows:
           image: "tprrt/debian-cross"
           path: debian-cross
           docker-context: debian-cross
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-latex:latest"
+          image: "tprrt/debian-latex"
+          path: debian-latex
+          docker-context: debian-latex
           tag: latest
           registry: docker.io
           update-description: false

@@ -16,6 +16,7 @@ A collection of Dockerfiles can be used with `Podman`_:
 - `alpine-pxe`_: A `PXE`_/`TFTP`_ server to boot targets from the network.
 - `debian-buildroot`_: An environment to build Linux systems with the `Buildroot`_ framework.
 - `debian-cross`_: An cross-compile environment providing tools for armv7, aarch64 and riscv targets.
+- `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 
 *Note*
@@ -34,11 +35,13 @@ Use the following command to validate the circle-ci pipeline:
 .. _alpine-pxe: https://hub.docker.com/repository/docker/tprrt/alpine-pxe
 .. _debian-buildroot: https://hub.docker.com/repository/docker/tprrt/debian-buildroot
 .. _debian-cross: https://hub.docker.com/repository/docker/tprrt/debian-cross
+.. _debian-latex: https://hub.docker.com/repository/docker/tprrt/debian-latex
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 
 .. _Buildroot: https://buildroot.org
 .. _crops/yocto : https://hub.docker.com/r/crops/yocto
 .. _Docker: https://www.docker.com
+.. _LaTeX: https://www.latex-project.org/
 .. _OCI: https://opencontainers.org
 .. _OpenEmbedded: https://openembedded.org
 .. _pixiecore: https://hub.docker.com/r/pixiecore/pixiecore
