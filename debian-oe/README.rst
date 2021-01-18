@@ -1,7 +1,12 @@
 OpenEmbedded container
 ----------------------
 
-A container to build a complete Linux system with the`OpenEmbedded`_ framework.
+A container to build a complete Linux system with the following branches of the
+`OpenEmbedded`_ framework:
+
+- master
+- gatesgarth (the latest stable)
+- dunfell (the long-term support)
 
 ::
 
