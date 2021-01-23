@@ -8,7 +8,8 @@ RUN apt update \
         ca-certificates \
         dumb-init \
         locales \
-	texlive-full \
+        make \
+        texlive-full \
         tzdata \
     && apt-get autoclean \
     && apt-get autoremove --purge \

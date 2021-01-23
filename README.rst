@@ -10,7 +10,7 @@
 Dockerfiles collection
 ======================
 
-A collection of Dockerfiles can be used with `Podman`_:
+A collection of Dockerfiles can be used with `Podman`_ and whose images are available on `DockerHub`_:
 
 - `alpine-cmake`_: An environment to compile C source with cmake and to debug it with gdb.
 - `alpine-pxe`_: A `PXE`_/`TFTP`_ server to boot targets from the network.
@@ -41,7 +41,8 @@ Use the following command to validate the circle-ci pipeline:
 .. _Buildroot: https://buildroot.org
 .. _crops/yocto : https://hub.docker.com/r/crops/yocto
 .. _Docker: https://www.docker.com
-.. _LaTeX: https://www.latex-project.org/
+.. _DockerHub: https://hub.docker.com/u/tprrt
+.. _LaTeX: https://www.latex-project.org
 .. _OCI: https://opencontainers.org
 .. _OpenEmbedded: https://openembedded.org
 .. _pixiecore: https://hub.docker.com/r/pixiecore/pixiecore
