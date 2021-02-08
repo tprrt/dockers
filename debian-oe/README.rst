@@ -21,7 +21,7 @@ A container to build a complete Linux system with the following branches of the
         --device /dev/kvm \
         --device /dev/net/tun \
         --device /dev/vhost-net \
-        --volume ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} \
+        --volume $SSH_AUTH_SOCK:/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         tprrt/debian-oe
