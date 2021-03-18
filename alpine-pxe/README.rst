@@ -3,20 +3,43 @@ PXE/TFTP server
 
 A `PXE`_/`TFTP`_ server to boot a target from the network.
 
+Pull the prebuilt image from docker hub
+
+Build the image
+
+Run the container
+
 ::
 
     podman build -t tprrt/alpine-pxe:latest -f ./Dockerfile .
 
+    #
+    firewall-cmd --add-service=tftp
+    firewall-cmd --add-service=dhcp
+    firewall-cmd --add-port=4011/udp
+
     # Launch the container
     cd <pxelinux.cfg>
     podman run --rm -i -t \
-        --cap-add=NET_ADMIN  --cap-add=NET_RAW \
+        --security-opt seccomp=unconfined --security-opt label=disable \
+        --userns=keep-id \
         --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg \
+        --workdir /tftp/pxelinux.cfg \
+        --cap-add=NET_ADMIN  --cap-add=NET_RAW \
+        --net host \
+        --iterface <eth> \
+        -p 69:69/udp \
+        -p 4011:4011/udp \
         tprrt/alpine-pxe
 
     # Stop the container
     podman container stop -t=1 tprrt/alpine-pxe
     podman container rm tprrt/alpine-pxe
+
+    firewall-cmd --remove-service=tftp
+    firewall-cmd --remove-service=dhcp
+    firewall-cmd --remove-port=4011/udp
+
 
 Following an example for /tftp/pxelinux.cfg/default:
 
