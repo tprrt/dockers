@@ -1,24 +1,33 @@
+===============
 PXE/TFTP server
----------------
+===============
 
 A `PXE`_/`TFTP`_ server to boot a target from the network.
 
-Pull the prebuilt image from docker hub
+----
 
-Build the image
+Use the following command to pull the image of on of these container:
 
-Run the container
+::
+
+    podman pull docker.io/tprrt/alpine-pxe
+
+
+Otherwise, it is possible to build the image, with the command below:
 
 ::
 
     podman build -t tprrt/alpine-pxe:latest -f ./Dockerfile .
 
-    #
+
+Run the container:
+
+::
+
     firewall-cmd --add-service=tftp
     firewall-cmd --add-service=dhcp
     firewall-cmd --add-port=4011/udp
 
-    # Launch the container
     cd <pxelinux.cfg>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
@@ -32,7 +41,11 @@ Run the container
         -p 4011:4011/udp \
         tprrt/alpine-pxe
 
-    # Stop the container
+
+Stop the container:
+
+::
+
     podman container stop -t=1 tprrt/alpine-pxe
     podman container rm tprrt/alpine-pxe
 
