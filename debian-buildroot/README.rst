@@ -1,13 +1,29 @@
+===================
 Buildroot container
--------------------
+===================
 
 A container to build a complete Linux system with the `Buildroot`_ framework.
+
+----
+
+Use the following command to pull the image of on of these container:
+
+::
+
+    podman pull docker.io/tprrt/debian-buildroot
+
+
+Otherwise, it is possible to build the image, with the command below:
 
 ::
 
     podman build -t tprrt/debian-buildroot:latest -f ./Dockerfile .
 
-    # Launch the container
+
+Run the container:
+
+::
+
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
@@ -16,8 +32,13 @@ A container to build a complete Linux system with the `Buildroot`_ framework.
         --workdir /src \
         tprrt/debian-buildroot
 
-    # Stop the container
+
+Stop the container:
+
+::
+
     podman container stop -t=1 tprrt/debian-buildroot
     podman container rm tprrt/debian-buildroot
+
 
 .. _Buildroot: https://buildroot.org
