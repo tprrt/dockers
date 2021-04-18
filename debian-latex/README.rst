@@ -1,13 +1,29 @@
+===============
 LaTeX container
----------------
+===============
 
 A container to prepare document with the`LaTeX`_ software system.
+
+----
+
+Use the following command to pull the image of on of these container:
+
+::
+
+    podman pull docker.io/tprrt/debian-latex
+
+
+Otherwise, it is possible to build the image, with the command below:
 
 ::
 
     podman build -t tprrt/debian-latex:latest -f ./Dockerfile .
 
-    # Launch the container
+
+Run the container:
+
+::
+
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
@@ -17,8 +33,13 @@ A container to prepare document with the`LaTeX`_ software system.
         tprrt/debian-latex \
         pdflatex <file>.tex
 
-    # Stop the container
+
+Stop the container:
+
+::
+
     podman container stop -t=1 tprrt/debian-latex
     podman container rm tprrt/debian-latex
+
 
 .. _LaTeX: https://www.latex-project.org/
