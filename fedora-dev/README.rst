@@ -1,8 +1,8 @@
-===================
-Buildroot container
-===================
+============================
+Fedora development container
+============================
 
-A container to build a complete Linux system with the `Buildroot`_ framework.
+A container to develop application running on `Fedora`_.
 
 ----
 
@@ -10,14 +10,14 @@ Use the following command to pull the image of on of these container:
 
 ::
 
-    podman pull docker.io/tprrt/debian-buildroot
+    podman pull docker.io/tprrt/fedora-dev
 
 
 Otherwise, it is possible to build the image, with the command below:
 
 ::
 
-    podman build -t tprrt/debian-buildroot:latest -f ./Dockerfile .
+    podman build -t tprrt/fedora-dev:latest -f ./Dockerfile .
 
 
 Run the container:
@@ -30,15 +30,15 @@ Run the container:
         --userns=keep-id \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
-        tprrt/debian-buildroot
+        tprrt/fedora-dev
 
 
 Stop the container:
 
 ::
 
-    podman container stop -t=1 tprrt/debian-buildroot
-    podman container rm tprrt/debian-buildroot
+    podman container stop -t=1 tprrt/fedora-dev
+    podman container rm tprrt/fedora-dev
 
 
-.. _Buildroot: https://buildroot.org
+.. _Fedora: https://getfedora.org

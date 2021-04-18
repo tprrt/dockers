@@ -19,17 +19,27 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 - `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 
+Use the following command to pull the image of on of these container:
+
+::
+
+    podman pull docker.io/tprrt/<name>
+
+
 *Note*
 
 - `Podman`_ is a daemonless container engine, developped by the `OCI`_ and safer than the `Docker`_ engine.
 - The container `pixiecore`_ is a great alterative to the container `alpine-pxe`_.
 - The `debian-oe`_ is an alternative to the official container `crops/yocto`_
 
-Use the following command to validate the circle-ci pipeline:
+----
+
+Use the following command to validate the `circleci`_ pipeline:
 
 ::
 
     podman run --rm --security-opt seccomp=unconfined --security-opt label=disable -v $(pwd):/data circleci/circleci-cli:alpine config validate /data/.circleci/config.yml --token $TOKEN
+
 
 .. _alpine-cmake: https://hub.docker.com/repository/docker/tprrt/alpine-cmake
 .. _alpine-pxe: https://hub.docker.com/repository/docker/tprrt/alpine-pxe
@@ -39,6 +49,7 @@ Use the following command to validate the circle-ci pipeline:
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 
 .. _Buildroot: https://buildroot.org
+.. _circleci: https://circleci.com
 .. _crops/yocto : https://hub.docker.com/r/crops/yocto
 .. _Docker: https://www.docker.com
 .. _DockerHub: https://hub.docker.com/u/tprrt

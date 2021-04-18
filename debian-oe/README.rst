@@ -1,5 +1,6 @@
+======================
 OpenEmbedded container
-----------------------
+======================
 
 A container to build a complete Linux system with the following branches of the
 `OpenEmbedded`_ framework:
@@ -8,11 +9,26 @@ A container to build a complete Linux system with the following branches of the
 - gatesgarth (the latest stable)
 - dunfell (the long-term support)
 
+----
+
+Use the following command to pull the image of on of these container:
+
+::
+
+    podman pull docker.io/tprrt/debian-oe
+
+
+Otherwise, it is possible to build the image, with the command below:
+
 ::
 
     podman build -t tprrt/debian-oe:latest -f ./Dockerfile .
 
-    # Launch the container
+
+Run the container:
+
+::
+
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
@@ -21,13 +37,18 @@ A container to build a complete Linux system with the following branches of the
         --device /dev/kvm \
         --device /dev/net/tun \
         --device /dev/vhost-net \
-        --volume ${SSH_AUTH_SOCK}:${SSH_AUTH_SOCK} \
+        --volume $SSH_AUTH_SOCK:/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         tprrt/debian-oe
 
-    # Stop the container
+
+Stop the container:
+
+::
+
     podman container stop -t=1 tprrt/debian-oe
     podman container rm tprrt/debian-oe
+
 
 .. _OpenEmbedded: https://openembedded.org

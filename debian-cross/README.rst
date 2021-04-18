@@ -1,13 +1,30 @@
+=======================
 Cross builder container
------------------------
+=======================
 
 A container to cross-compile and test projects for armv7, aarch64 or riscv64 targets.
+The toolchains are prebuilt and provided by `https://toolchains.bootlin.com`_.
+
+----
+
+Use the following command to pull the image of on of these container:
+
+::
+
+    podman pull docker.io/tprrt/debian-cross
+
+
+Otherwise, it is possible to build the image, with the command below:
 
 ::
 
     podman build -t tprrt/debian-cross:latest -f ./Dockerfile .
 
-    # Launch the container
+
+Run the container:
+
+::
+
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
@@ -16,7 +33,11 @@ A container to cross-compile and test projects for armv7, aarch64 or riscv64 tar
         --workdir /src \
         tprrt/debian-cross
 
-    # Stop the container
+
+Stop the container:
+
+::
+
     podman container stop -t=1 tprrt/debian-cross
     podman container rm tprrt/debian-cross
 
