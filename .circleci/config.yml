@@ -42,11 +42,11 @@ workflows:
           docker-context: alpine-cmake
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
       - docker/publish:
           filters:
             branches:
@@ -62,11 +62,11 @@ workflows:
           docker-context: alpine-pxe
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
       - docker/publish:
           filters:
             branches:
@@ -82,11 +82,11 @@ workflows:
           docker-context: debian-buildroot
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
       - docker/publish:
           filters:
             branches:
@@ -102,11 +102,11 @@ workflows:
           docker-context: debian-cross
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
       - docker/publish:
           filters:
             branches:
@@ -122,11 +122,11 @@ workflows:
           docker-context: debian-latex
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
       - docker/publish:
           filters:
             branches:
@@ -142,11 +142,11 @@ workflows:
           docker-context: debian-oe
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
       - docker/publish:
           filters:
             branches:
@@ -162,11 +162,11 @@ workflows:
           docker-context: fedora-dev
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          update-description: false
   build-publish:
     jobs:
       - static-analysis:
@@ -191,11 +191,11 @@ workflows:
           docker-context: alpine-cmake
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
       - docker/publish:
           filters:
             branches:
@@ -211,11 +211,11 @@ workflows:
           docker-context: alpine-pxe
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
       - docker/publish:
           filters:
             branches:
@@ -231,11 +231,11 @@ workflows:
           docker-context: debian-buildroot
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
       - docker/publish:
           filters:
             branches:
@@ -251,11 +251,11 @@ workflows:
           docker-context: debian-cross
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
       - docker/publish:
           filters:
             branches:
@@ -271,11 +271,11 @@ workflows:
           docker-context: debian-latex
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
       - docker/publish:
           filters:
             branches:
@@ -291,11 +291,11 @@ workflows:
           docker-context: debian-oe
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
       - docker/publish:
           filters:
             branches:
@@ -311,8 +311,8 @@ workflows:
           docker-context: fedora-dev
           tag: latest
           registry: docker.io
-          update-description: false
           use-docker-credentials-store: true
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          update-description: true
