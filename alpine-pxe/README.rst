@@ -8,21 +8,21 @@ A `PXE`_/`TFTP`_ server to boot a target from the network.
 
 Use the following command to pull the image of on of these container:
 
-::
+.. code-block:: bash
 
     podman pull docker.io/tprrt/alpine-pxe
 
 
 Otherwise, it is possible to build the image, with the command below:
 
-::
+.. code-block:: bash
 
     podman build -t tprrt/alpine-pxe:latest -f ./Dockerfile .
 
 
 Run the container:
 
-::
+.. code-block:: bash
 
     firewall-cmd --add-service=tftp
     firewall-cmd --add-service=dhcp
@@ -44,7 +44,7 @@ Run the container:
 
 Stop the container:
 
-::
+.. code-block:: bash
 
     podman container stop -t=1 tprrt/alpine-pxe
     podman container rm tprrt/alpine-pxe
@@ -56,7 +56,7 @@ Stop the container:
 
 Following an example for /tftp/pxelinux.cfg/default:
 
-::
+.. code-block:: bash
 
     PROMPT 0
     TIMEOUT 3

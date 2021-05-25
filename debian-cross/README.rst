@@ -9,21 +9,21 @@ The toolchains are prebuilt and provided by `https://toolchains.bootlin.com`_.
 
 Use the following command to pull the image of on of these container:
 
-::
+.. code-block:: bash
 
     podman pull docker.io/tprrt/debian-cross
 
 
 Otherwise, it is possible to build the image, with the command below:
 
-::
+.. code-block:: bash
 
     podman build -t tprrt/debian-cross:latest -f ./Dockerfile .
 
 
 Run the container:
 
-::
+.. code-block:: bash
 
     cd <src>
     podman run --rm -i -t \
@@ -36,7 +36,7 @@ Run the container:
 
 Stop the container:
 
-::
+.. code-block:: bash
 
     podman container stop -t=1 tprrt/debian-cross
     podman container rm tprrt/debian-cross
@@ -44,7 +44,7 @@ Stop the container:
 
 Following, an example of use to cross-compile Busybox and test it with Qemu:
 
-::
+.. code-block:: bash
 
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
@@ -60,7 +60,7 @@ Following, an example of use to cross-compile Busybox and test it with Qemu:
 
 Following, an example of use to cross-compile U-boot and test it with Qemu:
 
-::
+.. code-block:: bash
 
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
@@ -74,7 +74,7 @@ Following, an example of use to cross-compile U-boot and test it with Qemu:
 
 Following, an example of use to cross-compile the kernel Linux and test it with Qemu:
 
-::
+.. code-block:: bash
 
     export ARCH=arm64
     export CROSS_COMPILE=aarch64-linux-
@@ -94,7 +94,7 @@ Following, an example of use to cross-compile the kernel Linux and test it with 
 
 Following, the value of the environment variables to use the avaible toolchains:
 
-::
+.. code-block:: bash
 
     # To use the ARMv7 toolchain
     export ARCH=armv7-eabi

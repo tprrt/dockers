@@ -21,7 +21,7 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 
 Use the following command to pull the image of on of these container:
 
-::
+.. code-block:: bash
 
     podman pull docker.io/tprrt/<name>
 
@@ -36,7 +36,7 @@ Use the following command to pull the image of on of these container:
 
 Use the following command to validate the `circleci`_ pipeline:
 
-::
+.. code-block:: bash
 
     podman run --rm --security-opt seccomp=unconfined --security-opt label=disable -v $(pwd):/data circleci/circleci-cli:alpine config validate /data/.circleci/config.yml --token $TOKEN
 

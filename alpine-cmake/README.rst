@@ -8,21 +8,21 @@ A container to build quickly projects using cmake, gcc, clang and essential buil
 
 Use the following command to pull the image of on of these container:
 
-::
+.. code-block:: bash
 
     podman pull docker.io/tprrt/alpine-cmake
 
 
 Otherwise, it is possible to build the image, with the command below:
 
-::
+.. code-block:: bash
 
     podman build -t tprrt/alpine-cmake:latest -f ./Dockerfile .
 
 
 Run the container:
 
-::
+.. code-block:: bash
 
     cd <src>
     podman run --rm -i -t \
@@ -35,7 +35,7 @@ Run the container:
 
 Stop the container:
 
-::
+.. code-block:: bash
 
     podman container stop -t=1 tprrt/alpine-cmake
     podman container rm tprrt/alpine-cmake
