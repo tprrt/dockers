@@ -10,6 +10,7 @@ RUN apt update \
         inkscape \
         locales \
         make \
+        python3-pygments \
         texlive-full \
         tzdata \
     && apt-get autoclean \
