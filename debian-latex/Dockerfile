@@ -7,6 +7,7 @@ RUN apt update \
         bash \
         ca-certificates \
         dumb-init \
+        inkscape \
         locales \
         make \
         texlive-full \
