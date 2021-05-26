@@ -2,7 +2,8 @@
 Fedora development container
 ============================
 
-A container to develop application running on `Fedora`_.
+A container providing a minimal set of tools to develop an application for
+`Fedora`_ 33.
 
 ----
 
