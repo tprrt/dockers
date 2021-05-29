@@ -6,6 +6,7 @@ RUN apt update \
     && apt install -y --no-install-recommends \
         bash \
         ca-certificates \
+        dia \
         dumb-init \
         inkscape \
         locales \
