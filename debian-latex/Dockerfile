@@ -8,6 +8,8 @@ RUN apt update \
         ca-certificates \
         dia \
         dumb-init \
+        fonts-inconsolata \
+        fonts-liberation \
         inkscape \
         locales \
         make \
