@@ -14,6 +14,7 @@ RUN apt update \
         dumb-init \
         file \
         gawk \
+        gdisk \
         gcc-multilib \
         git \
         iproute2 \
@@ -25,6 +26,7 @@ RUN apt update \
         procps \
         pylint3 \
         python3 \
+        python3-cairo \
         python3-git \
         python3-jinja2 \
         python3-pip \
