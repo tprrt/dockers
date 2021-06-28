@@ -19,6 +19,7 @@ RUN apt update \
         libncursesw5-dev \
         libssl-dev \
         locales \
+        lzop \
         qemu \
         qemu-system-aarch64 \
         qemu-system-arm \
