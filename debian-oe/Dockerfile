@@ -40,6 +40,7 @@ RUN apt update \
         tmux \
         tzdata \
         unzip \
+        vim \
         wget \
         xz-utils \
     && apt-get autoclean \
