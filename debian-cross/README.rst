@@ -58,7 +58,7 @@ Following, an example of use to cross-compile Busybox and test it with Qemu:
     qemu-aarch64-static busybox <applet>
 
 
-Following, an example of use to cross-compile U-boot and test it with Qemu:
+Following, an example of use to cross-compile U-Boot and test it with Qemu:
 
 .. code-block:: bash
 
@@ -97,7 +97,7 @@ Following, the value of the environment variables to use the avaible toolchains:
 .. code-block:: bash
 
     # To use the ARMv7 toolchain
-    export ARCH=armv7-eabi
+    export ARCH=armv7-eabi # or export ARCH=arm
     export CROSS_COMPILE=arm-linux-
     export export PATH=/armv7-eabihf--glibc--stable-2020.08-1/bin:$PATH
 
