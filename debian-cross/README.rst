@@ -89,7 +89,7 @@ Following, an example of use to cross-compile the kernel Linux and test it with 
     qemu-system-aarch64 -nographic -no-reboot -machine virt -cpu cortex-a57 -smp 2 -m 256 -kernel arch/arm64/boot/Image -append "panic=5 ro ip=dhcp root=/dev/vda" [-drive file=/src/busybox/rootfs.img,format=raw,if=none,id=hd0 -device virtio-blk-device,drive=hd0][-bios u-boot.bin]
     qemu-system-aarch64 -nographic -no-reboot -machine virt -cpu cortex-a57 -smp 2 -m 256 -kernel arch/arm64/boot/Image -append "panic=5 ro ip=dhcp root=/dev/vda" -drive file=/src/busybox/rootfs.img,format=raw,if=none,id=hd0 -device virtio-blk-device,drive=hd0
 
-    
+
 
 
 Following, the value of the environment variables to use the avaible toolchains:
@@ -97,7 +97,8 @@ Following, the value of the environment variables to use the avaible toolchains:
 .. code-block:: bash
 
     # To use the ARMv7 toolchain
-    export ARCH=armv7-eabi # or export ARCH=arm
+    # export ARCH=armv7-eabi
+    export ARCH=arm
     export CROSS_COMPILE=arm-linux-
     export export PATH=/armv7-eabihf--glibc--stable-2020.08-1/bin:$PATH
 
