@@ -23,6 +23,7 @@ RUN apt update \
         libegl1-mesa \
         libsdl1.2-dev \
         locales \
+        lz4 \
         procps \
         pylint3 \
         python3 \
@@ -43,6 +44,7 @@ RUN apt update \
         vim \
         wget \
         xz-utils \
+        zstd \
     && apt-get autoclean \
     && apt-get autoremove --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
