@@ -9,6 +9,7 @@ RUN apt update \
         build-essential \
         ca-certificates \
         cpio \
+        device-tree-compiler \
         dumb-init \
         file \
         flex \
