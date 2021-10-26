@@ -6,6 +6,7 @@ RUN apt update \
     && apt install -y --no-install-recommends \
         bash \
         bc \
+        bison \
         build-essential \
         ca-certificates \
         cpio \
@@ -18,6 +19,7 @@ RUN apt update \
         ipxe-qemu \
         libncurses5-dev \
         libncursesw5-dev \
+        libsdl2-dev \
         libssl-dev \
         locales \
         lzop \
