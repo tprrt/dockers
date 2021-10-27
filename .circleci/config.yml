@@ -1,5 +1,5 @@
 orbs:
-  docker: circleci/docker@1.5.0
+  docker: circleci/docker@1.7.0
   sonarcloud: sonarsource/sonarcloud@1.0.2
 version: 2.1
 executors:
