@@ -23,12 +23,16 @@ RUN apt update \
         libssl-dev \
         locales \
         lzop \
+        python3-pycryptodome \
+        python3-dev \
+        python3-pytest \
         qemu \
         qemu-system-aarch64 \
         qemu-system-arm \
         qemu-system-riscv64 \
         qemu-user-static \
         strace \
+        swig \
         wget \
     && apt-get autoclean \
     && apt-get autoremove --purge \
