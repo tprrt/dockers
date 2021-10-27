@@ -5,10 +5,10 @@ version: 2.1
 executors:
   docker-py3-ghp:
     docker:
-      - image: circleci/python:3.7
+      - image: cimg/python:3.9
   docker-sonarcloud:
     docker:
-      - image: circleci/node:buster
+      - image: cimg/node:17.0.1
     resource_class: small
 jobs:
   static-analysis:
