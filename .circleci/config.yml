@@ -9,7 +9,7 @@ executors:
   docker-sonarcloud:
     docker:
       - image: cimg/node:17.0.1
-    resource_class: small
+    resource_class: medium
 jobs:
   static-analysis:
     executor: docker-sonarcloud
