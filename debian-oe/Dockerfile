@@ -67,6 +67,7 @@ USER devuser
 RUN mkdir /home/devuser/.ssh \
     && echo "PubkeyAcceptedKeyTypes +ssh-rsa" >> /home/devuser/.ssh/config \
     && echo "ServerAliveInterval 5" >> /home/devuser/.ssh/config \
+    && echo "UpdateHostKeys yes" >> /home/devuser/.ssh/config \
     && echo "StrictHostKeyChecking no" >> /home/devuser/.ssh/config \
     && chmod 600 /home/devuser/.ssh/config
 
