@@ -76,5 +76,7 @@ RUN mkdir -p /home/devuser/.local/bin/ \
     && chmod a+rx /home/devuser/.local/bin/repo \
     && echo 'export PATH="${PATH}:/home/devuser/.local/bin"' >> /home/devuser/.bashrc
 
+RUN pip3 install kas
+
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["/bin/bash"]
