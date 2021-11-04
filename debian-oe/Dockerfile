@@ -14,8 +14,8 @@ RUN apt update \
         dumb-init \
         file \
         gawk \
-        gdisk \
         gcc-multilib \
+        gdisk \
         git \
         iproute2 \
         iputils-ping \
