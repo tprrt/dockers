@@ -1,4 +1,4 @@
-FROM debian:buster-slim
+FROM debian:bullseye-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 RUN apt update \
@@ -27,6 +27,7 @@ RUN apt update \
         procps \
         pylint3 \
         python3 \
+        python-is-python3 \
         python3-cairo \
         python3-git \
         python3-jinja2 \
