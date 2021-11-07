@@ -41,7 +41,7 @@ RUN apt update \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 10 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 10 \
-    && echo -n "Europe/Paris" > /etc/timezone \
+    && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get purge locales-all \
     && dpkg-reconfigure -f noninteractive locales \
