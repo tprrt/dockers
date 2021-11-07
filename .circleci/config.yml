@@ -44,6 +44,8 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -64,6 +66,8 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -84,6 +88,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          lint-dockerfile: true
       - docker/publish:
           filters:
             branches:
@@ -104,6 +109,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          lint-dockerfile: true
       - docker/publish:
           filters:
             branches:
@@ -124,6 +130,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          lint-dockerfile: true
       - docker/publish:
           filters:
             branches:
@@ -144,6 +151,8 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -164,6 +173,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: false
+          lint-dockerfile: true
   build-publish:
     jobs:
       - static-analysis:
@@ -193,6 +203,8 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -213,6 +225,8 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -233,6 +247,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          lint-dockerfile: true
       - docker/publish:
           filters:
             branches:
@@ -253,6 +268,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          lint-dockerfile: true
       - docker/publish:
           filters:
             branches:
@@ -273,6 +289,7 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          lint-dockerfile: true
       - docker/publish:
           filters:
             branches:
@@ -293,6 +310,8 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -313,3 +332,4 @@ workflows:
           dockerfile: Dockerfile
           readme: README.rst
           deploy: true
+          lint-dockerfile: true
