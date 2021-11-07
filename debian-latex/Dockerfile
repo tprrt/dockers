@@ -19,7 +19,7 @@ RUN apt update \
     && apt-get autoclean \
     && apt-get autoremove --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && echo -n "Europe/Paris" > /etc/timezone \
+    && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get purge locales-all \
     && dpkg-reconfigure -f noninteractive locales \
