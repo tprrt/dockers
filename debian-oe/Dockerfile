@@ -20,6 +20,7 @@ RUN apt update \
         iproute2 \
         iputils-ping \
         iptables \
+        less \
         libegl1-mesa \
         libsdl1.2-dev \
         locales \
