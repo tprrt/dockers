@@ -3,14 +3,10 @@ orbs:
   sonarcloud: sonarsource/sonarcloud@1.0.2
 version: 2.1
 executors:
-  docker-py3-ghp:
-    docker:
-      - image: cimg/python:3.9
-    resource_class: medium
   docker-sonarcloud:
     docker:
       - image: cimg/node:17.0.1
-    resource_class: medium
+    resource_class: large
 jobs:
   static-analysis:
     executor: docker-sonarcloud
