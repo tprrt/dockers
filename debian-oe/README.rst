@@ -6,7 +6,8 @@ A container to build a complete Linux system with the following branches of the
 `OpenEmbedded`_ framework:
 
 - master
-- hardknott (the latest stable)
+- honister (the latest stable)
+- hardknott
 - gatesgarth
 - dunfell (the long-term support)
 
