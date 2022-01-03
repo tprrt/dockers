@@ -8,7 +8,6 @@ A container to build a complete Linux system with the following branches of the
 - master
 - honister (the latest stable)
 - hardknott
-- gatesgarth
 - dunfell (the long-term support)
 
 ----
