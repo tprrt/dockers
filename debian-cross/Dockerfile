@@ -50,17 +50,17 @@ RUN apt update \
     && locale-gen en_US.UTF-8 \
     && update-locale
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--stable-2020.08-1.tar.bz2 \
-    && tar xvjf aarch64--glibc--stable-2020.08-1.tar.bz2 \
-    && rm -f aarch64--glibc--stable-2020.08-1.tar.bz2
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--stable-2021.11-1.tar.bz2 \
+    && tar xvjf aarch64--glibc--stable-2021.11-1.tar.bz2 \
+    && rm -f aarch64--glibc--stable-2021.11-1.tar.bz2
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--stable-2020.08-1.tar.bz2 \
-    && tar xvjf armv7-eabihf--glibc--stable-2020.08-1.tar.bz2 \
-    && rm -f armv7-eabihf--glibc--stable-2020.08-1.tar.bz2
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--stable-2021.11-1.tar.bz2 \
+    && tar xvjf armv7-eabihf--glibc--stable-2021.11-1.tar.bz2 \
+    && rm -f armv7-eabihf--glibc--stable-2021.11-1.tar.bz2
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64/tarballs/riscv64--glibc--bleeding-edge-2020.08-1.tar.bz2 \
-    && tar xvjf riscv64--glibc--bleeding-edge-2020.08-1.tar.bz2 \
-    && rm -f riscv64--glibc--bleeding-edge-2020.08-1.tar.bz2
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--glibc--stable-2021.11-1.tar.bz2 \
+    && tar xvjf riscv64-lp64d--glibc--stable-2021.11-1.tar.bz2 \
+    && rm -f riscv64-lp64d--glibc--stable-2021.11-1.tar.bz2
 
 RUN useradd -m devuser
 
