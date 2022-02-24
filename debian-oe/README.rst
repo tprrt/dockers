@@ -6,13 +6,13 @@ A container to build a complete Linux system with the following branches of the
 `OpenEmbedded`_ framework:
 
 - master
-- honister (the latest stable)
+- honister
 - hardknott
 - dunfell (the long-term support)
 
 ----
 
-Use the following command to pull the image of on of these container:
+Use the following command to pull the image of this container:
 
 .. code-block:: bash
 

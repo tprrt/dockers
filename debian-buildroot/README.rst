@@ -6,7 +6,7 @@ A container to build a complete Linux system with the `Buildroot`_ framework.
 
 ----
 
-Use the following command to pull the image of on of these container:
+Use the following command to pull the image of this container:
 
 .. code-block:: bash
 

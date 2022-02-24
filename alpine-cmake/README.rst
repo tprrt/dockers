@@ -6,7 +6,7 @@ A container to build quickly projects using cmake, gcc, clang and essential buil
 
 ----
 
-Use the following command to pull the image of on of these container:
+Use the following command to pull the image of this container:
 
 .. code-block:: bash
 

@@ -6,7 +6,7 @@ A container to prepare document with the`LaTeX`_ software system.
 
 ----
 
-Use the following command to pull the image of on of these container:
+Use the following command to pull the image of this container:
 
 .. code-block:: bash
 

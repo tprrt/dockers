@@ -7,7 +7,7 @@ A container providing a minimal set of tools to develop an application for
 
 ----
 
-Use the following command to pull the image of on of these container:
+Use the following command to pull the image of this container:
 
 .. code-block:: bash
 

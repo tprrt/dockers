@@ -20,7 +20,7 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 - `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_ 33.
 
-Use the following command to pull the image of on of these container:
+Use the following command to pull the image of one of these containers:
 
 .. code-block:: bash
 
