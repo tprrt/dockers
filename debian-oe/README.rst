@@ -38,7 +38,7 @@ Run the container:
         --device /dev/kvm \
         --device /dev/net/tun \
         --device /dev/vhost-net \
-        --volume $SSH_AUTH_SOCK:/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
+        --volume $(realpath $SSH_AUTH_SOCK):/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         tprrt/debian-oe

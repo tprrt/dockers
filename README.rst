@@ -18,7 +18,7 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 - `debian-cross`_: An cross-compile environment providing tools for armv7, aarch64 and riscv targets.
 - `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
-- `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_ 33.
+- `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_.
 
 Use the following command to pull the image of one of these containers:
 
