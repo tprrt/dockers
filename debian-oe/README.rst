@@ -3,12 +3,12 @@ OpenEmbedded container
 ======================
 
 A container to build a complete Linux system with the following branches of the
-`OpenEmbedded`_ framework:
+`OpenEmbedded`_ framework used by the `Yocto Project`_:
 
 - master
-- honister
-- hardknott
-- dunfell (the long-term support)
+- Kirkstone (LTS)
+- Honister
+- Dunfell (LTS)
 
 ----
 
@@ -53,3 +53,4 @@ Stop the container:
 
 
 .. _OpenEmbedded: https://openembedded.org
+.. _Yocto Project: https://yoctoproject.org
