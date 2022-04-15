@@ -24,6 +24,7 @@ RUN apt update \
         patch \
         perl \
         python3 \
+        python3-six \
         rsync \
         sed \
         tar \
