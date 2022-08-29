@@ -1,4 +1,4 @@
-FROM fedora:35
+FROM fedora:36
 LABEL maintainer thomas.perrot@tupi.fr
 
 RUN dnf -y update --refresh \
