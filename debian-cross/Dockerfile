@@ -26,10 +26,10 @@ RUN apt update \
         python3-pycryptodome \
         python3-dev \
         python3-pytest \
-        qemu \
         qemu-system-aarch64 \
         qemu-system-arm \
         qemu-system-riscv64 \
+        qemu-user \
         qemu-user-static \
         strace \
         swig \
@@ -38,9 +38,9 @@ RUN apt update \
     && apt-get autoremove -y --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20 \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 10 \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 10 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 10 \
     && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get purge locales-all \
@@ -50,17 +50,17 @@ RUN apt update \
     && locale-gen en_US.UTF-8 \
     && update-locale
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--stable-2021.11-1.tar.bz2 \
-    && tar xvjf aarch64--glibc--stable-2021.11-1.tar.bz2 \
-    && rm -f aarch64--glibc--stable-2021.11-1.tar.bz2
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--stable-2022.08-1.tar.bz2 \
+    && tar xvjf aarch64--glibc--stable-2022.08-1.tar.bz2 \
+    && rm -f aarch64--glibc--stable-2022.08-1.tar.bz2
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--stable-2021.11-1.tar.bz2 \
-    && tar xvjf armv7-eabihf--glibc--stable-2021.11-1.tar.bz2 \
-    && rm -f armv7-eabihf--glibc--stable-2021.11-1.tar.bz2
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--stable-2022.08-1.tar.bz2 \
+    && tar xvjf armv7-eabihf--glibc--stable-2022.08-1.tar.bz2 \
+    && rm -f armv7-eabihf--glibc--stable-2022.08-1.tar.bz2
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--glibc--stable-2021.11-1.tar.bz2 \
-    && tar xvjf riscv64-lp64d--glibc--stable-2021.11-1.tar.bz2 \
-    && rm -f riscv64-lp64d--glibc--stable-2021.11-1.tar.bz2
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--glibc--stable-2022.08-1.tar.bz2 \
+    && tar xvjf riscv64-lp64d--glibc--stable-2022.08-1.tar.bz2 \
+    && rm -f riscv64-lp64d--glibc--stable-2022.08-1.tar.bz2
 
 RUN useradd -m devuser
 
