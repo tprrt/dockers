@@ -41,6 +41,7 @@ Run the container:
         --volume $(realpath $SSH_AUTH_SOCK):/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
+	-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
         tprrt/debian-oe
 
 
