@@ -162,7 +162,7 @@ workflows:
             - static-analysis
           context:
             - docker.io
-          cache_from: "tprrt/fedora-dev:latest"
+          cache_from: "tprrt/fedora-dev:36"
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
@@ -321,7 +321,7 @@ workflows:
             - static-analysis
           context:
             - docker.io
-          cache_from: "tprrt/fedora-dev:latest"
+          cache_from: "tprrt/fedora-dev:36"
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
