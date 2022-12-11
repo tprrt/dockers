@@ -1,4 +1,4 @@
-FROM debian:unstable-slim
+FROM debian:bullseye-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 RUN apt update \
@@ -38,9 +38,9 @@ RUN apt update \
     && apt-get autoremove -y --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20 \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 10 \
+    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 \
     && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 10 \
+    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10 \
     && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get purge locales-all \
