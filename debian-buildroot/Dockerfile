@@ -32,7 +32,7 @@ RUN apt update \
         unzip \
         wget \
     && apt-get autoclean \
-    && apt-get autoremove --purge \
+    && apt-get autoremove -y --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20 \
     && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 \
