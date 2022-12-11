@@ -272,7 +272,7 @@ workflows:
       - docker/publish:
           filters:
             branches:
-              ignore:
+              only:
                 - master
           requires:
             - static-analysis
@@ -315,7 +315,7 @@ workflows:
       # - docker/publish:
       #     filters:
       #       branches:
-      #         ignore:
+      #         only:
       #           - master
       #     requires:
       #       - static-analysis
