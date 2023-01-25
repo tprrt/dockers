@@ -107,6 +107,6 @@ Following, the value of the environment variables to use the avaible toolchains:
     export export PATH=/aarch64--glibc--stable-2022.08-1/bin:$PATH
 
     # To use the RISC-V toochain
-    export ARCH=riscv64
+    export ARCH=riscv
     export CROSS_COMPILE=riscv64-linux-
     export export PATH=/riscv64-lp64d--glibc--stable-2022.08-1/bin:$PATH

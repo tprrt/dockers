@@ -25,6 +25,7 @@ RUN apt update \
         lzop \
         python3-pycryptodome \
         python3-dev \
+        python3-pip \
         python3-pytest \
         qemu-system-aarch64 \
         qemu-system-arm \
@@ -49,6 +50,8 @@ RUN apt update \
     && echo "en_US.UTF-8 UTF-8" > /etc/default/locale \
     && locale-gen en_US.UTF-8 \
     && update-locale
+
+RUN pip install dtschema
 
 RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--stable-2022.08-1.tar.bz2 \
     && tar xvjf aarch64--glibc--stable-2022.08-1.tar.bz2 \
