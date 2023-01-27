@@ -1,4 +1,4 @@
-FROM fedora:36
+FROM fedora:37
 LABEL maintainer thomas.perrot@tupi.fr
 
 RUN dnf -y update --refresh \
@@ -10,7 +10,7 @@ RUN dnf -y update --refresh \
         cmake \
         dumb-init \
         g++ \
-        libusb-devel \
+        libusb-compat-0.1-devel \
         libzip-devel \
         openssl-devel \
     && dnf -y autoremove \
