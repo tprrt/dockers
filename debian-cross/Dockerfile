@@ -28,7 +28,9 @@ RUN apt update \
         libssl-dev \
         locales \
         lzop \
+        python3-cryptography \
         python3-pycryptodome \
+        python3-pyelftools \
         python3-dev \
         python3-pytest \
         qemu-system-aarch64 \
