@@ -31,8 +31,8 @@ RUN apt update \
         tzdata \
         unzip \
         wget \
-    && apt-get autoclean \
-    && apt-get autoremove -y --purge \
+    && apt-get autoremove --purge \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
