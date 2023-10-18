@@ -9,6 +9,7 @@ RUN apt update \
         bison \
         build-essential \
         ca-certificates \
+        codespell \
         cpio \
         device-tree-compiler \
         dumb-init \
