@@ -153,27 +153,27 @@ workflows:
           deploy: false
           # https://github.com/RedCoolBeans/dockerlint/issues/52
           lint-dockerfile: false
-      # - docker/publish:
-      #     filters:
-      #       branches:
-      #         ignore:
-      #           - master
-      #     requires:
-      #       - static-analysis
-      #     context:
-      #       - docker.io
-      #     cache_from: "tprrt/fedora-dev:37"
-      #     image: "tprrt/fedora-dev"
-      #     path: fedora-dev
-      #     docker-context: fedora-dev
-      #     tag: latest
-      #     registry: docker.io
-      #     update-description: false
-      #     use-docker-credentials-store: true
-      #     dockerfile: Dockerfile
-      #     readme: README.rst
-      #     deploy: false
-      #     lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/fedora-dev:37"
+          image: "tprrt/fedora-dev"
+          path: fedora-dev
+          docker-context: fedora-dev
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+          lint-dockerfile: true
   build-publish:
     jobs:
       - static-analysis:
@@ -312,24 +312,24 @@ workflows:
           deploy: true
           # https://github.com/RedCoolBeans/dockerlint/issues/52
           lint-dockerfile: false
-      # - docker/publish:
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      #     requires:
-      #       - static-analysis
-      #     context:
-      #       - docker.io
-      #     cache_from: "tprrt/fedora-dev:37"
-      #     image: "tprrt/fedora-dev"
-      #     path: fedora-dev
-      #     docker-context: fedora-dev
-      #     tag: latest
-      #     registry: docker.io
-      #     update-description: false
-      #     use-docker-credentials-store: true
-      #     dockerfile: Dockerfile
-      #     readme: README.rst
-      #     deploy: true
-      #     lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/fedora-dev:37"
+          image: "tprrt/fedora-dev"
+          path: fedora-dev
+          docker-context: fedora-dev
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
