@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 ENV VERSION="stable"
@@ -15,11 +15,12 @@ RUN apt update \
         codespell \
         cpio \
         device-tree-compiler \
+        dt-schema \
         dumb-init \
         file \
         flex \
-        gcc-9 \
-        g++-9 \
+        gcc \
+        g++ \
         ipxe-qemu \
         libncurses5-dev \
         libncursesw5-dev \
@@ -29,7 +30,6 @@ RUN apt update \
         lzop \
         python3-pycryptodome \
         python3-dev \
-        python3-pip \
         python3-pytest \
         qemu-system-aarch64 \
         qemu-system-arm \
@@ -42,10 +42,6 @@ RUN apt update \
     && apt-get autoclean \
     && apt-get autoremove -y --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20 \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10 \
     && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get purge locales-all \
@@ -54,8 +50,6 @@ RUN apt update \
     && echo "en_US.UTF-8 UTF-8" > /etc/default/locale \
     && locale-gen en_US.UTF-8 \
     && update-locale
-
-RUN pip install dtschema
 
 RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2 \
         --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
