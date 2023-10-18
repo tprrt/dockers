@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 RUN apt update \
@@ -13,10 +13,10 @@ RUN apt update \
         cpio \
         dumb-init \
         file \
-        gcc-9 \
+        gcc \
         git \
         gzip \
-        g++-9 \
+        g++ \
         libncurses5-dev \
         libncursesw5-dev \
         locales \
@@ -34,10 +34,6 @@ RUN apt update \
     && apt-get autoclean \
     && apt-get autoremove -y --purge \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9 20 \
-    && update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 20 \
-    && update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 10 \
     && echo -n "UTC" > /etc/timezone \
     && dpkg-reconfigure -f noninteractive tzdata \
     && apt-get purge locales-all \
