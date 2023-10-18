@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 RUN apt update \
@@ -20,19 +20,19 @@ RUN apt update \
         iproute2 \
         iputils-ping \
         iptables \
+        kas \
         less \
         libegl1-mesa \
         libsdl1.2-dev \
         locales \
         lz4 \
         procps \
-        pylint3 \
+        pylint \
         python3 \
         python-is-python3 \
         python3-cairo \
         python3-git \
         python3-jinja2 \
-        python3-pip \
         python3-pexpect \
         python3-subunit \
         python3-testtools \
@@ -77,8 +77,6 @@ RUN mkdir -p /home/devuser/.local/bin/ \
     && wget https://commondatastorage.googleapis.com/git-repo-downloads/repo -O /home/devuser/.local/bin/repo \
     && chmod a+rx /home/devuser/.local/bin/repo \
     && echo 'export PATH="${PATH}:/home/devuser/.local/bin"' >> /home/devuser/.bashrc
-
-RUN pip3 install kas
 
 ENTRYPOINT ["dumb-init", "--"]
 CMD ["/bin/bash"]
