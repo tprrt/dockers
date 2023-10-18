@@ -58,14 +58,17 @@ RUN apt update \
 RUN pip install dtschema
 
 RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+        --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
     && tar xvjf aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2 \
     && rm -f aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2
 
 RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+        --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
     && tar xvjf armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.bz2 \
     && rm -f armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.bz2
 
 RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+        --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
     && tar xvjf riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.bz2 \
     && rm -f riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.bz2
 
