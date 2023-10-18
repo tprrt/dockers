@@ -1,11 +1,11 @@
 orbs:
-  docker: circleci/docker@2.2.0
-  sonarcloud: sonarsource/sonarcloud@1.0.2
+  docker: circleci/docker@2.4.0
+  sonarcloud: sonarsource/sonarcloud@2.0.0
 version: 2.1
 executors:
   docker-sonarcloud:
     docker:
-      - image: cimg/node:17.0.1
+      - image: cimg/node:20.8.1
     resource_class: large
 jobs:
   static-analysis:
