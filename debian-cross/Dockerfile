@@ -29,10 +29,11 @@ RUN apt update \
         locales \
         lzop \
         python3-cryptography \
+        python3-dev \
         python3-pycryptodome \
         python3-pyelftools \
-        python3-dev \
         python3-pytest \
+        python3-setuptools \
         qemu-system-aarch64 \
         qemu-system-arm \
         qemu-system-riscv64 \
