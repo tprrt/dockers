@@ -30,6 +30,8 @@ Run the container:
 
 .. code-block:: bash
 
+    xhost +"local:podman@"
+
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
@@ -51,6 +53,7 @@ Stop the container:
 
     podman container stop -t=1 tprrt/debian-oe
     podman container rm tprrt/debian-oe
+    xhost -"local:podman@
 
 
 .. _OpenEmbedded: https://openembedded.org
