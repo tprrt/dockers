@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 ENV VERSION="stable"
-ENV RELEASE="2023.08-1"
+ENV RELEASE="2023.11-1"
 
 RUN apt update \
     && export DEBIAN_FRONTEND=noninteractive \
