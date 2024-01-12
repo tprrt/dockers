@@ -74,9 +74,8 @@ RUN mkdir /home/devuser/.ssh \
     && chmod 600 /home/devuser/.ssh/config
 
 RUN mkdir -p /home/devuser/.local/bin/ \
-    && wget https://commondatastorage.googleapis.com/git-repo-downloads/repo -O /home/devuser/.local/bin/repo \
-        --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
-    && chmod a+rx /home/devuser/.local/bin/repo \
+    && wget --secure-protocol=TLSv1_2 --max-redirect=0 -q \
+        https://commondatastorage.googleapis.com/git-repo-downloads/repo -O /home/devuser/.local/bin/repo \
     && echo 'export PATH="${PATH}:/home/devuser/.local/bin"' >> /home/devuser/.bashrc
 
 ENTRYPOINT ["dumb-init", "--"]
