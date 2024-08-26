@@ -48,7 +48,7 @@ Following, an example of use to cross-compile Busybox and test it with Qemu:
 
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2024.02-1/bin:$PATH
+    export export PATH=/aarch64--glibc--stable-2024.05-1/bin:$PATH
 
     export LDFLAGS="--static"
 
@@ -64,7 +64,7 @@ Following, an example of use to cross-compile U-Boot and test it with Qemu:
 
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2024.02-1/bin:$PATH
+    export export PATH=/aarch64--glibc--stable-2024.05-1/bin:$PATH
 
     make qemu_arm64_defconfig
     make -j$(nproc)
@@ -78,7 +78,7 @@ Following, an example of use to cross-compile the kernel Linux and test it with 
 
     export ARCH=arm64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2024.02-1/bin:$PATH
+    export export PATH=/aarch64--glibc--stable-2024.05-1/bin:$PATH
 
     make defconfig
     make -j$(nproc)
@@ -99,14 +99,14 @@ Following, the value of the environment variables to use the avaible toolchains:
     # To use the ARMv7 toolchain
     export ARCH=arm
     export CROSS_COMPILE=arm-linux-
-    export export PATH=/armv7-eabihf--glibc--stable-2024.02-1/bin:$PATH
+    export export PATH=/armv7-eabihf--glibc--stable-2024.05-1/bin:$PATH
 
     # To use the ARMv8 toolchain
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2024.02-1/bin:$PATH
+    export export PATH=/aarch64--glibc--stable-2024.05-1/bin:$PATH
 
     # To use the RISC-V toochain
     export ARCH=riscv
     export CROSS_COMPILE=riscv64-linux-
-    export export PATH=/riscv64-lp64d--glibc--stable-2024.02-1/bin:$PATH
+    export export PATH=/riscv64-lp64d--glibc--stable-2024.05-1/bin:$PATH
