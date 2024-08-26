@@ -2,7 +2,7 @@ FROM debian:bookworm-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
 ENV VERSION="stable"
-ENV RELEASE="2024.02-1"
+ENV RELEASE="2024.05-1"
 
 RUN apt update \
     && export DEBIAN_FRONTEND=noninteractive \
@@ -54,35 +54,35 @@ RUN apt update \
     && locale-gen en_US.UTF-8 \
     && update-locale
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/aarch64/tarballs/aarch64--glibc--${VERSION}-${RELEASE}.tar.xz \
         --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
-    && tar xjf aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+    && tar xf aarch64--glibc--${VERSION}-${RELEASE}.tar.xz \
         --exclude="bin/python3*" \
         --exclude="include/python3*" \
         --exclude="lib/pkgconfig/python3*" \
         --exclude="lib/python3*" \
         --exclude="share/man/man1/python3*" \
-    && rm -f aarch64--glibc--${VERSION}-${RELEASE}.tar.bz2
+    && rm -f aarch64--glibc--${VERSION}-${RELEASE}.tar.xz
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/armv7-eabihf/tarballs/armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.xz \
         --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
-    && tar xjf armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+    && tar xf armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.xz \
         --exclude="bin/python3*" \
         --exclude="include/python3*" \
         --exclude="lib/pkgconfig/python3*" \
         --exclude="lib/python3*" \
         --exclude="share/man/man1/python3*" \
-    && rm -f armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.bz2
+    && rm -f armv7-eabihf--glibc--${VERSION}-${RELEASE}.tar.xz
 
-RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp64d/tarballs/riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.xz \
         --secure-protocol=TLSv1_2 --max-redirect=0 -q  \
-    && tar xjf riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.bz2 \
+    && tar xf riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.xz \
         --exclude="bin/python3*" \
         --exclude="include/python3*" \
         --exclude="lib/pkgconfig/python3*" \
         --exclude="lib/python3*" \
         --exclude="share/man/man1/python3*" \
-    && rm -f riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.bz2
+    && rm -f riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.xz
 
 RUN useradd -m devuser
 
