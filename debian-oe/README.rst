@@ -36,7 +36,7 @@ Run the container:
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
         --cap-add=NET_ADMIN --cap-add=NET_RAW \
-        --userns=keep-id \
+        --userns=keep-id:uid=1000,gid=1000 \
         --device /dev/kvm \
         --device /dev/net/tun \
         --device /dev/vhost-net \
@@ -44,6 +44,7 @@ Run the container:
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
 	-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+        --pids-limit=0 \
         tprrt/debian-oe
 
 
