@@ -9,6 +9,8 @@ RUN dnf -y update --refresh \
         ca-certificates \
         cmake \
         dumb-init \
+        fedora-packager \
+        fedora-review \
         g++ \
         libusb-compat-0.1-devel \
         libzip-devel \
@@ -18,6 +20,7 @@ RUN dnf -y update --refresh \
     && rm -rf /var/cache/dnf
 
 RUN useradd -m devuser
+RUN usermod -a -G mock devuser
 
 USER devuser
 
