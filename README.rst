@@ -16,6 +16,7 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 - `alpine-pxe`_: A `PXE`_/`TFTP`_ server to boot targets from the network.
 - `debian-buildroot`_: An environment to build Linux systems with the `Buildroot`_ framework.
 - `debian-cross`_: An cross-compile environment providing tools for armv7, aarch64 and riscv targets.
+- `debian-gh`_: An environment that provides the official `Github CLI`_.
 - `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 - `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_.
@@ -46,6 +47,7 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _alpine-pxe: https://hub.docker.com/repository/docker/tprrt/alpine-pxe
 .. _debian-buildroot: https://hub.docker.com/repository/docker/tprrt/debian-buildroot
 .. _debian-cross: https://hub.docker.com/repository/docker/tprrt/debian-cross
+.. _debian-gh: https://hub.docker.com/repository/docker/tprrt/debian-gh
 .. _debian-latex: https://hub.docker.com/repository/docker/tprrt/debian-latex
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 .. _fedora-dev: https://hub.docker.com/repository/docker/tprrt/fedora-dev
@@ -56,6 +58,7 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _Docker: https://www.docker.com
 .. _DockerHub: https://hub.docker.com/u/tprrt
 .. _Fedora: https://getfedora.org
+.. _GitHub CLI: https://cli.github.com/
 .. _LaTeX: https://www.latex-project.org
 .. _OCI: https://opencontainers.org
 .. _OpenEmbedded: https://openembedded.org

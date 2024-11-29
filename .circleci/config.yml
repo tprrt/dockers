@@ -119,6 +119,27 @@ workflows:
             - static-analysis
           context:
             - docker.io
+          cache_from: "tprrt/debian-gh:latest"
+          image: "tprrt/debian-gh"
+          path: debian-gh
+          docker-context: debian-gh
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
           cache_from: "tprrt/debian-latex:latest"
           image: "tprrt/debian-latex"
           path: debian-latex
@@ -261,6 +282,27 @@ workflows:
           image: "tprrt/debian-cross"
           path: debian-cross
           docker-context: debian-cross
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-gh:latest"
+          image: "tprrt/debian-gh"
+          path: debian-gh
+          docker-context: debian-gh
           tag: latest
           registry: docker.io
           update-description: false
