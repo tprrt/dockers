@@ -20,6 +20,7 @@ RUN apt update \
         file \
         flex \
         gcc \
+        gnutls-dev \
         g++ \
         ipxe-qemu \
         libncurses5-dev \
