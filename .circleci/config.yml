@@ -195,6 +195,27 @@ workflows:
           readme: README.rst
           deploy: false
           lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/ubuntu-ngdevkit:latest"
+          image: "tprrt/ubuntu-ngdevkit"
+          path: ubuntu-ngdevkit
+          docker-context: ubuntu-ngdevkit
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+          lint-dockerfile: true
   build-publish:
     jobs:
       - static-analysis:
@@ -367,6 +388,27 @@ workflows:
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/ubuntu-ngdevkit:latest"
+          image: "tprrt/ubuntu-ngdevkit"
+          path: ubuntu-ngdevkit
+          docker-context: ubuntu-ngdevkit
           tag: latest
           registry: docker.io
           update-description: false
