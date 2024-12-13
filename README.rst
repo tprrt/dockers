@@ -20,6 +20,7 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 - `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 - `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_.
+- `ubuntu-ngdevkit`_: An environment that provides `ngdevkit`_, an open source Neo-Geo devkit.
 
 Use the following command to pull the image of one of these containers:
 
@@ -51,6 +52,7 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _debian-latex: https://hub.docker.com/repository/docker/tprrt/debian-latex
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 .. _fedora-dev: https://hub.docker.com/repository/docker/tprrt/fedora-dev
+.. _ubuntu-ngdevkit: https://hub.docker.com/repository/docker/tprrt/ubuntu-ngdevkit
 
 .. _Buildroot: https://buildroot.org
 .. _circleci: https://circleci.com
@@ -62,6 +64,7 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _LaTeX: https://www.latex-project.org
 .. _OCI: https://opencontainers.org
 .. _OpenEmbedded: https://openembedded.org
+.. _ngdevkit: https://github.com/dciabrin/ngdevkit
 .. _pixiecore: https://hub.docker.com/r/pixiecore/pixiecore
 .. _Podman: https://podman.io
 .. _PXE: https://en.wikipedia.org/wiki/Preboot_Execution_Environment
