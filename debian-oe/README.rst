@@ -7,8 +7,7 @@ A container to build a complete Linux system with the following branches of the
 
 - master
 - Kirkstone (LTS)
-- Honister
-- Dunfell (LTS)
+- Scarthgap (LTS)
 
 ----
 
