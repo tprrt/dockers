@@ -3,7 +3,7 @@ Fedora development container
 ============================
 
 A container providing a minimal set of tools to develop an application for
-`Fedora`_ 39.
+`Fedora`_ 41.
 
 ----
 
