@@ -4,9 +4,10 @@ LABEL maintainer thomas.perrot@tupi.fr
 RUN apt update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt install -y --no-install-recommends \
-        wget \
-        gnupg \
-        locales \
+	ca-certificates \
+	wget \
+	gnupg \
+	locales \
     && apt-get -y autoremove --purge \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -31,10 +32,11 @@ COPY --from=builder /etc/apt/sources.list.d/github-cli.list /etc/apt/sources.lis
 RUN apt update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt install -y --no-install-recommends \
-        bash \
-        dumb-init \
-        gh \
-        locales \
+	bash \
+	ca-certificates \
+	dumb-init \
+	gh \
+	locales \
     && apt-get -y autoremove --purge \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
