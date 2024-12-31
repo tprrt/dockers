@@ -31,11 +31,14 @@ Run the container:
         --userns=keep-id:uid=1000,gid=1000 \
         --device /dev/net/tun \
         --device /dev/vhost-net \
-        --volume $(realpath $SSH_AUTH_SOCK):/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
+        --volume $(realpath $SSH_AUTH_SOCK):/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         --pids-limit=0 \
         tprrt/debian-gh
+
+    echo "<your_token>" > /tmp/token
+    gh auth login --git-protocol=ssh --with-token < /tmp/token
 
 
 Stop the container:
