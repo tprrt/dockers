@@ -15,7 +15,7 @@ jobs:
       - sonarcloud/scan
 workflows:
   version: 2
-  build:
+  commit-build:
     jobs:
       - static-analysis:
           filters:
@@ -216,7 +216,215 @@ workflows:
           readme: README.rst
           deploy: false
           lint-dockerfile: true
-  build-publish:
+  commit-build-publish:
+    jobs:
+      - static-analysis:
+          filters:
+            branches:
+              only:
+                - master
+          context:
+            - sonarcloud.io
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/alpine-cmake:latest"
+          image: "tprrt/alpine-cmake"
+          path: alpine-cmake
+          docker-context: alpine-cmake
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/alpine-pxe:latest"
+          image: "tprrt/alpine-pxe"
+          path: alpine-pxe
+          docker-context: alpine-pxe
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-buildroot:latest"
+          image: "tprrt/debian-buildroot"
+          path: debian-buildroot
+          docker-context: debian-buildroot
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-cross:latest"
+          image: "tprrt/debian-cross"
+          path: debian-cross
+          docker-context: debian-cross
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-gh:latest"
+          image: "tprrt/debian-gh"
+          path: debian-gh
+          docker-context: debian-gh
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-latex:latest"
+          image: "tprrt/debian-latex"
+          path: debian-latex
+          docker-context: debian-latex
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/debian-oe:latest"
+          image: "tprrt/debian-oe"
+          path: debian-oe
+          docker-context: debian-oe
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          # https://github.com/RedCoolBeans/dockerlint/issues/52
+          lint-dockerfile: false
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/fedora-dev:latest"
+          image: "tprrt/fedora-dev"
+          path: fedora-dev
+          docker-context: fedora-dev
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/ubuntu-ngdevkit:latest"
+          image: "tprrt/ubuntu-ngdevkit"
+          path: ubuntu-ngdevkit
+          docker-context: ubuntu-ngdevkit
+          tag: latest
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+  weekly-build-publish:
+    triggers:
+      - schedule:
+          cron: "0 0 * * 5"
+          filters:
+            branches:
+              only:
+                - master
     jobs:
       - static-analysis:
           filters:
