@@ -20,7 +20,6 @@ RUN apt update \
         iproute2 \
         iputils-ping \
         iptables \
-        kas \
         less \
         libegl1-mesa \
         libsdl1.2-dev \
@@ -34,6 +33,7 @@ RUN apt update \
         python3-git \
         python3-jinja2 \
         python3-pexpect \
+        python3-pip \
         python3-subunit \
         python3-testtools \
         openssh-client \
@@ -58,6 +58,7 @@ RUN apt update \
     && echo "en_US.UTF-8 UTF-8" > /etc/default/locale \
     && locale-gen en_US.UTF-8 \
     && update-locale
+    && pip3 install --break-system-packages --no-cache-dir kas==4.7
 
 RUN mkdir /tmp/qemu-tap-locks && touch /tmp/qemu-tap-locks/tap0.skip
 
