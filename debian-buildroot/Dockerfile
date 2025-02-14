@@ -1,9 +1,9 @@
 FROM debian:bookworm-slim
 LABEL maintainer thomas.perrot@tupi.fr
 
-RUN apt update \
+RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
         bash \
         bc \
         binutils \
