@@ -4,9 +4,9 @@ LABEL maintainer thomas.perrot@tupi.fr
 ENV VERSION="stable"
 ENV RELEASE="2024.05-1"
 
-RUN apt update \
+RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
         bash \
         bc \
         bison \
