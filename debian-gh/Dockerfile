@@ -1,9 +1,9 @@
 FROM debian:bookworm-slim AS builder
 LABEL maintainer thomas.perrot@tupi.fr
 
-RUN apt update \
+RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
 	ca-certificates \
 	wget \
 	gnupg \
@@ -29,9 +29,9 @@ LABEL maintainer thomas.perrot@tupi.fr
 COPY --from=builder /usr/share/keyrings/githubcli-archive-keyring.gpg /usr/share/keyrings/githubcli-archive-keyring.gpg
 COPY --from=builder /etc/apt/sources.list.d/github-cli.list /etc/apt/sources.list.d/github-cli.list
 
-RUN apt update \
+RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
 	bash \
 	ca-certificates \
 	dumb-init \
