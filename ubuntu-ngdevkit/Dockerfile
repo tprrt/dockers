@@ -1,11 +1,11 @@
 FROM ubuntu:noble
 LABEL maintainer thomas.perrot@tupi.fr
 
-RUN apt update \
+RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt install -y --no-install-recommends software-properties-common \
+    && apt-get install -y --no-install-recommends software-properties-common \
     && add-apt-repository -y ppa:dciabrin/ngdevkit \
-    && apt install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends \
         autoconf \
         automake \
         bash \
