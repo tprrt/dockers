@@ -12,6 +12,7 @@ RUN dnf -y update --refresh \
         fedora-packager \
         fedora-review \
         g++ \
+        libtool \
         libusb-compat-0.1-devel \
         libzip-devel \
         openssl-devel \
