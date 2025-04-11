@@ -20,7 +20,7 @@ RUN apt-get update \
     && locale-gen en_US.UTF-8 \
     && update-locale
 
-RUN wget --secure-protocol=TLSv1_2 --max-redirect=0 https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /usr/share/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+RUN wget --secure-protocol=TLSv1_2 --max-redirect=0 -q https://cli.github.com/packages/githubcli-archive-keyring.gpg | tee /usr/share/keyrings/githubcli-archive-keyring.gpg \
     && echo "deb [signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list
 
 FROM debian:bookworm-slim
