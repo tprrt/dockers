@@ -18,6 +18,9 @@ A collection of Dockerfiles can be used with `Podman`_ and whose images are avai
 - `debian-cross`_: An cross-compile environment providing tools for armv7, aarch64 and riscv targets.
 - `debian-gh`_: An environment that provides the official `Github CLI`_.
 - `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
+- `debian-devkitpro-arm`_: An environment that provides `_devkitPro`_, an open source game consoles devkit.
+- `debian-devkitpro-arm64`_: An environment that provides `_devkitPro`_, an open source game consoles devkit.
+- `debian-devkitpro-ppc`_: An environment that provides `_devkitPro`_, an open source game consoles devkit.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 - `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_.
 - `ubuntu-ngdevkit`_: An environment that provides `ngdevkit`_, an open source Neo-Geo devkit.
@@ -33,7 +36,8 @@ Use the following command to pull the image of one of these containers:
 
 - `Podman`_ is a daemonless container engine, developped by the `OCI`_ and safer than the `Docker`_ engine.
 - The container `pixiecore`_ is a great alterative to the container `alpine-pxe`_.
-- The `debian-oe`_ is an alternative to the official container `crops/yocto`_
+- The `debian-oe`_ is an alternative to the official container `crops/yocto`_.
+- The `debian-devkitpro` are an alternative to the official containers `devkitpro/docker`_.
 
 ----
 
@@ -48,6 +52,9 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _alpine-pxe: https://hub.docker.com/repository/docker/tprrt/alpine-pxe
 .. _debian-buildroot: https://hub.docker.com/repository/docker/tprrt/debian-buildroot
 .. _debian-cross: https://hub.docker.com/repository/docker/tprrt/debian-cross
+.. _debian-devkitpro-arm: https://hub.docker.com/repository/docker/tprrt/debian-devkitpro-arm
+.. _debian-devkitpro-arm64: https://hub.docker.com/repository/docker/tprrt/debian-devkitpro-arm64
+.. _debian-devkitpro-ppc: https://hub.docker.com/repository/docker/tprrt/debian-devkitpro-ppc
 .. _debian-gh: https://hub.docker.com/repository/docker/tprrt/debian-gh
 .. _debian-latex: https://hub.docker.com/repository/docker/tprrt/debian-latex
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
@@ -57,6 +64,8 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _Buildroot: https://buildroot.org
 .. _circleci: https://circleci.com
 .. _crops/yocto : https://hub.docker.com/r/crops/yocto
+.. _devkitPro: https://devkitpro.org
+.. _devkitpro/docker: https://github.com/devkitPro/docker
 .. _Docker: https://www.docker.com
 .. _DockerHub: https://hub.docker.com/u/tprrt
 .. _Fedora: https://getfedora.org

@@ -152,6 +152,75 @@ workflows:
           readme: README.rst
           deploy: false
           lint-dockerfile: true
+      # - docker/publish:
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #     requires:
+      #       - static-analysis
+      #     context:
+      #       - docker.io
+      #     cache_from: "tprrt/debian-devkitpro-arm:latest"
+      #     image: "tprrt/debian-devkitpro-arm"
+      #     path: debian-devkitpro
+      #     docker-context: debian-devkitpro
+      #     tag: latest
+      #     registry: docker.io
+      #     update-description: false
+      #     use-docker-credentials-store: true
+      #     dockerfile: Dockerfile
+      #     extra_build_args: "--target debian-devkitpro-arm"
+      #     readme: README.rst
+      #     deploy: false
+      #     # https://github.com/RedCoolBeans/dockerlint/issues/52
+      #     lint-dockerfile: false
+      # - docker/publish:
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #     requires:
+      #       - static-analysis
+      #     context:
+      #       - docker.io
+      #     cache_from: "tprrt/debian-devkitpro-arm64:latest"
+      #     image: "tprrt/debian-devkitpro-arm64"
+      #     path: debian-devkitpro
+      #     docker-context: debian-devkitpro
+      #     tag: latest
+      #     registry: docker.io
+      #     update-description: false
+      #     use-docker-credentials-store: true
+      #     dockerfile: Dockerfile
+      #     extra_build_args: "--target debian-devkitpro-arm64"
+      #     readme: README.rst
+      #     deploy: false
+      #     # https://github.com/RedCoolBeans/dockerlint/issues/52
+      #     lint-dockerfile: false
+      # - docker/publish:
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #     requires:
+      #       - static-analysis
+      #     context:
+      #       - docker.io
+      #     cache_from: "tprrt/debian-devkitpro-ppc:latest"
+      #     image: "tprrt/debian-devkitpro-ppc"
+      #     path: debian-devkitpro
+      #     docker-context: debian-devkitpro
+      #     tag: latest
+      #     registry: docker.io
+      #     update-description: false
+      #     use-docker-credentials-store: true
+      #     dockerfile: Dockerfile
+      #     extra_build_args: "--target debian-devkitpro-ppc"
+      #     readme: README.rst
+      #     deploy: false
+      #     # https://github.com/RedCoolBeans/dockerlint/issues/52
+      #     lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
@@ -353,6 +422,75 @@ workflows:
           readme: README.rst
           deploy: true
           lint-dockerfile: true
+      # - docker/publish:
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #     requires:
+      #       - static-analysis
+      #     context:
+      #       - docker.io
+      #     cache_from: "tprrt/debian-devkitpro-arm:latest"
+      #     image: "tprrt/debian-devkitpro-arm"
+      #     path: debian-devkitpro
+      #     docker-context: debian-devkitpro
+      #     tag: latest
+      #     registry: docker.io
+      #     update-description: false
+      #     use-docker-credentials-store: true
+      #     dockerfile: Dockerfile
+      #     extra_build_args: "--target debian-devkitpro-arm"
+      #     readme: README.rst
+      #     deploy: true
+      #     # https://github.com/RedCoolBeans/dockerlint/issues/52
+      #     lint-dockerfile: false
+      # - docker/publish:
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #     requires:
+      #       - static-analysis
+      #     context:
+      #       - docker.io
+      #     cache_from: "tprrt/debian-devkitpro-arm64:latest"
+      #     image: "tprrt/debian-devkitpro-arm64"
+      #     path: debian-devkitpro
+      #     docker-context: debian-devkitpro
+      #     tag: latest
+      #     registry: docker.io
+      #     update-description: false
+      #     use-docker-credentials-store: true
+      #     dockerfile: Dockerfile
+      #     extra_build_args: "--target debian-devkitpro-arm64"
+      #     readme: README.rst
+      #     deploy: true
+      #     # https://github.com/RedCoolBeans/dockerlint/issues/52
+      #     lint-dockerfile: false
+      # - docker/publish:
+      #     filters:
+      #       branches:
+      #         ignore:
+      #           - master
+      #     requires:
+      #       - static-analysis
+      #     context:
+      #       - docker.io
+      #     cache_from: "tprrt/debian-devkitpro-ppc:latest"
+      #     image: "tprrt/debian-devkitpro-ppc"
+      #     path: debian-devkitpro
+      #     docker-context: debian-devkitpro
+      #     tag: latest
+      #     registry: docker.io
+      #     update-description: false
+      #     use-docker-credentials-store: true
+      #     dockerfile: Dockerfile
+      #     extra_build_args: "--target debian-devkitpro-ppc"
+      #     readme: README.rst
+      #     deploy: true
+      #     # https://github.com/RedCoolBeans/dockerlint/issues/52
+      #     lint-dockerfile: false
       - docker/publish:
           filters:
             branches:
