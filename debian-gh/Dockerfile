@@ -1,5 +1,6 @@
 FROM debian:bookworm-slim AS builder
-LABEL maintainer thomas.perrot@tupi.fr
+
+LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
@@ -24,7 +25,6 @@ RUN wget --secure-protocol=TLSv1_2 --max-redirect=0 -q https://cli.github.com/pa
     && echo "deb [signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list
 
 FROM debian:bookworm-slim
-LABEL maintainer thomas.perrot@tupi.fr
 
 COPY --from=builder /usr/share/keyrings/githubcli-archive-keyring.gpg /usr/share/keyrings/githubcli-archive-keyring.gpg
 COPY --from=builder /etc/apt/sources.list.d/github-cli.list /etc/apt/sources.list.d/github-cli.list

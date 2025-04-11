@@ -1,5 +1,6 @@
 FROM fedora:41
-LABEL maintainer thomas.perrot@tupi.fr
+
+LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
 RUN dnf -y update --refresh \
     && dnf -y install --setopt=install_weak_deps=False --best \
