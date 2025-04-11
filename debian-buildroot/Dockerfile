@@ -1,5 +1,6 @@
 FROM debian:bookworm-slim
-LABEL maintainer thomas.perrot@tupi.fr
+
+LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \

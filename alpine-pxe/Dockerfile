@@ -1,5 +1,6 @@
 FROM alpine:3.12
-LABEL maintainer thomas.perrot@tupi.fr
+
+LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
 RUN apk add --no-cache --update \
     bash \
