@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
@@ -16,7 +16,6 @@ RUN apt-get update \
         codespell \
         cpio \
         device-tree-compiler \
-        dt-schema \
         dumb-init \
         file \
         flex \
@@ -32,6 +31,7 @@ RUN apt-get update \
         lzop \
         python3-cryptography \
         python3-dev \
+        python3-pip \
         python3-pycryptodome \
         python3-pyelftools \
         python3-pytest \
@@ -85,6 +85,8 @@ RUN wget https://toolchains.bootlin.com/downloads/releases/toolchains/riscv64-lp
         --exclude="lib/python3*" \
         --exclude="share/man/man1/python3*" \
     && rm -f riscv64-lp64d--glibc--${VERSION}-${RELEASE}.tar.xz
+
+RUN pip3 install --break-system-packages --no-cache-dir dtschema==v2022.08.1
 
 RUN useradd -m devuser
 
