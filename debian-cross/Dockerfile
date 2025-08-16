@@ -3,7 +3,7 @@ FROM debian:bookworm-slim
 LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
 ENV VERSION="stable"
-ENV RELEASE="2024.05-1"
+ENV RELEASE="2025.08-1"
 
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
