@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim AS debian-devkitpro-toolchain
+FROM debian:trixie-slim AS debian-devkitpro-toolchain
 
 LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
