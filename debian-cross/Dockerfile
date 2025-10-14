@@ -44,6 +44,7 @@ RUN apt-get update \
         strace \
         swig \
         wget \
+        xxd \
     && apt-get -y autoremove -y --purge \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
