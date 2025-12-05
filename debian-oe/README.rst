@@ -35,14 +35,15 @@ Run the container:
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
         --cap-add=NET_ADMIN --cap-add=NET_RAW \
-        --userns=keep-id:uid=1000,gid=1000 \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
         --device /dev/kvm \
         --device /dev/net/tun \
         --device /dev/vhost-net \
         --volume $(realpath $SSH_AUTH_SOCK):/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent\
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
-	-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e XDG_RUNTIME_DIR -v /run/user/$(id -u):/run/user/$(id -u) \
         --pids-limit=0 \
         tprrt/debian-oe
 
