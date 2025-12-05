@@ -34,10 +34,11 @@ Run the container:
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
-        --userns=keep-id:uid=1000,gid=1000 \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
-	-e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e XDG_RUNTIME_DIR -v /run/user/$(id -u):/run/user/$(id -u) \
         --pids-limit=0 \
         tprrt/debian-devkitpro-[arm|arm64|ppc]
 
