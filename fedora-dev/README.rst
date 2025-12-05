@@ -3,7 +3,7 @@ Fedora development container
 ============================
 
 A container providing a minimal set of tools to develop an application for
-`Fedora`_ 41.
+`Fedora`_ 42.
 
 ----
 
@@ -28,7 +28,7 @@ Run the container:
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
-        --userns=keep-id:uid=1000,gid=1000 \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         --pids-limit=0 \
