@@ -31,10 +31,10 @@ Run the container:
     cd <pxelinux.cfg>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
-        --userns=keep-id \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
         --mount type=bind,source=$(pwd),target=/tftp/pxelinux.cfg \
         --workdir /tftp/pxelinux.cfg \
-        --cap-add=NET_ADMIN  --cap-add=NET_RAW \
+        --cap-add=NET_ADMIN --cap-add=NET_RAW \
         --net host \
         --iterface <eth> \
         -p 69:69/udp \
