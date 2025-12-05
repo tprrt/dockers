@@ -28,7 +28,7 @@ Run the container:
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
         --cap-add=NET_ADMIN --cap-add=NET_RAW \
-        --userns=keep-id:uid=1000,gid=1000 \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
         --device /dev/net/tun \
         --device /dev/vhost-net \
         --volume $(realpath $SSH_AUTH_SOCK):/ssh-agent --env SSH_AUTH_SOCK=/ssh-agent \
