@@ -27,11 +27,11 @@ Run the container:
     cd <src>
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
-	--userns=keep-id:uid=1000,gid=1000 \
-	--mount type=bind,source=$(pwd),target=/src \
-	--workdir /src \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
+        --mount type=bind,source=$(pwd),target=/src \
+        --workdir /src \
         --pids-limit=0 \
-	tprrt/alpine-cmake
+        tprrt/alpine-cmake
 
 
 Stop the container:
