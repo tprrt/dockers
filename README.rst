@@ -79,3 +79,10 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _PXE: https://en.wikipedia.org/wiki/Preboot_Execution_Environment
 .. _TFTP: https://en.wikipedia.org/wiki/Trivial_File_Transfer_Protocol
 .. _Yocto: https://yoctoproject.org
+
+License
+-------
+
+This project is licensed under the GNU General Public License v3.0 or later - see the `LICENSE`_ file for details.
+
+.. _LICENSE: LICENSE
