@@ -80,6 +80,15 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _TFTP: https://en.wikipedia.org/wiki/Trivial_File_Transfer_Protocol
 .. _Yocto: https://yoctoproject.org
 
+Support
+-------
+
+If you find this project helpful, you can support its development:
+
+.. image:: https://img.shields.io/badge/PayPal-Donate-blue.svg
+    :alt: Donate via PayPal
+    :target: https://paypal.me/tprrt
+
 License
 -------
 
