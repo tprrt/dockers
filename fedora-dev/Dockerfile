@@ -11,15 +11,22 @@ RUN dnf -y update --refresh \
         automake \
         bzip2-devel \
         ca-certificates \
+        clang-tools-extra \
         cmake \
         dumb-init \
         fedora-packager \
         fedora-review \
+        git \
         g++ \
         libtool \
         libusb-compat-0.1-devel \
         libzip-devel \
         openssl-devel \
+        meson \
+        ninja-build \
+        pkgconfig \
+        strace \
+        valgrind \
     && dnf -y autoremove \
     && dnf -y clean all --enablerepo=\* \
     && rm -rf /var/cache/dnf
