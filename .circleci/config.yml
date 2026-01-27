@@ -17,7 +17,6 @@ jobs:
       - checkout
       - sonarcloud/scan
 workflows:
-  version: 2
   commit-build:
     jobs:
       - static-analysis:
@@ -40,7 +39,7 @@ workflows:
           image: "tprrt/alpine-cmake"
           path: alpine-cmake
           docker-context: alpine-cmake
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -62,7 +61,7 @@ workflows:
           image: "tprrt/alpine-pxe"
           path: alpine-pxe
           docker-context: alpine-pxe
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -84,7 +83,7 @@ workflows:
           image: "tprrt/debian-buildroot"
           path: debian-buildroot
           docker-context: debian-buildroot
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -105,7 +104,7 @@ workflows:
           image: "tprrt/debian-cross"
           path: debian-cross
           docker-context: debian-cross
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -126,7 +125,7 @@ workflows:
           image: "tprrt/debian-gh"
           path: debian-gh
           docker-context: debian-gh
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -147,7 +146,7 @@ workflows:
           image: "tprrt/debian-latex"
           path: debian-latex
           docker-context: debian-latex
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -168,7 +167,7 @@ workflows:
       #     image: "tprrt/debian-devkitpro-arm"
       #     path: debian-devkitpro
       #     docker-context: debian-devkitpro
-      #     tag: latest
+      #     tag: "latest,$(date +%Y%m%d)"
       #     registry: docker.io
       #     update-description: false
       #     use-docker-credentials-store: true
@@ -191,7 +190,7 @@ workflows:
       #     image: "tprrt/debian-devkitpro-arm64"
       #     path: debian-devkitpro
       #     docker-context: debian-devkitpro
-      #     tag: latest
+      #     tag: "latest,$(date +%Y%m%d)"
       #     registry: docker.io
       #     update-description: false
       #     use-docker-credentials-store: true
@@ -214,7 +213,7 @@ workflows:
       #     image: "tprrt/debian-devkitpro-ppc"
       #     path: debian-devkitpro
       #     docker-context: debian-devkitpro
-      #     tag: latest
+      #     tag: "latest,$(date +%Y%m%d)"
       #     registry: docker.io
       #     update-description: false
       #     use-docker-credentials-store: true
@@ -237,7 +236,7 @@ workflows:
           image: "tprrt/debian-oe"
           path: debian-oe
           docker-context: debian-oe
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -259,7 +258,7 @@ workflows:
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -280,7 +279,7 @@ workflows:
           image: "tprrt/ubuntu-ngdevkit"
           path: ubuntu-ngdevkit
           docker-context: ubuntu-ngdevkit
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -310,7 +309,7 @@ workflows:
           image: "tprrt/alpine-cmake"
           path: alpine-cmake
           docker-context: alpine-cmake
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -332,7 +331,7 @@ workflows:
           image: "tprrt/alpine-pxe"
           path: alpine-pxe
           docker-context: alpine-pxe
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -354,7 +353,7 @@ workflows:
           image: "tprrt/debian-buildroot"
           path: debian-buildroot
           docker-context: debian-buildroot
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -375,7 +374,7 @@ workflows:
           image: "tprrt/debian-cross"
           path: debian-cross
           docker-context: debian-cross
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -396,7 +395,7 @@ workflows:
           image: "tprrt/debian-gh"
           path: debian-gh
           docker-context: debian-gh
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -417,7 +416,7 @@ workflows:
           image: "tprrt/debian-latex"
           path: debian-latex
           docker-context: debian-latex
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -428,7 +427,7 @@ workflows:
       # - docker/publish:
       #     filters:
       #       branches:
-      #         ignore:
+      #         only:
       #           - master
       #     requires:
       #       - static-analysis
@@ -438,7 +437,7 @@ workflows:
       #     image: "tprrt/debian-devkitpro-arm"
       #     path: debian-devkitpro
       #     docker-context: debian-devkitpro
-      #     tag: latest
+      #     tag: "latest,$(date +%Y%m%d)"
       #     registry: docker.io
       #     update-description: false
       #     use-docker-credentials-store: true
@@ -451,7 +450,7 @@ workflows:
       # - docker/publish:
       #     filters:
       #       branches:
-      #         ignore:
+      #         only:
       #           - master
       #     requires:
       #       - static-analysis
@@ -461,7 +460,7 @@ workflows:
       #     image: "tprrt/debian-devkitpro-arm64"
       #     path: debian-devkitpro
       #     docker-context: debian-devkitpro
-      #     tag: latest
+      #     tag: "latest,$(date +%Y%m%d)"
       #     registry: docker.io
       #     update-description: false
       #     use-docker-credentials-store: true
@@ -474,7 +473,7 @@ workflows:
       # - docker/publish:
       #     filters:
       #       branches:
-      #         ignore:
+      #         only:
       #           - master
       #     requires:
       #       - static-analysis
@@ -484,7 +483,7 @@ workflows:
       #     image: "tprrt/debian-devkitpro-ppc"
       #     path: debian-devkitpro
       #     docker-context: debian-devkitpro
-      #     tag: latest
+      #     tag: "latest,$(date +%Y%m%d)"
       #     registry: docker.io
       #     update-description: false
       #     use-docker-credentials-store: true
@@ -507,7 +506,7 @@ workflows:
           image: "tprrt/debian-oe"
           path: debian-oe
           docker-context: debian-oe
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -529,7 +528,7 @@ workflows:
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -550,7 +549,7 @@ workflows:
           image: "tprrt/ubuntu-ngdevkit"
           path: ubuntu-ngdevkit
           docker-context: ubuntu-ngdevkit
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -587,7 +586,7 @@ workflows:
           image: "tprrt/alpine-cmake"
           path: alpine-cmake
           docker-context: alpine-cmake
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -609,7 +608,7 @@ workflows:
           image: "tprrt/alpine-pxe"
           path: alpine-pxe
           docker-context: alpine-pxe
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -631,7 +630,7 @@ workflows:
           image: "tprrt/debian-buildroot"
           path: debian-buildroot
           docker-context: debian-buildroot
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -652,7 +651,7 @@ workflows:
           image: "tprrt/debian-cross"
           path: debian-cross
           docker-context: debian-cross
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -673,7 +672,7 @@ workflows:
           image: "tprrt/debian-gh"
           path: debian-gh
           docker-context: debian-gh
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -694,7 +693,7 @@ workflows:
           image: "tprrt/debian-latex"
           path: debian-latex
           docker-context: debian-latex
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -715,7 +714,7 @@ workflows:
           image: "tprrt/debian-oe"
           path: debian-oe
           docker-context: debian-oe
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -737,7 +736,7 @@ workflows:
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
@@ -758,7 +757,7 @@ workflows:
           image: "tprrt/ubuntu-ngdevkit"
           path: ubuntu-ngdevkit
           docker-context: ubuntu-ngdevkit
-          tag: latest
+          tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
           use-docker-credentials-store: true
