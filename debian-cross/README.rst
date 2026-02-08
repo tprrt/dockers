@@ -43,13 +43,13 @@ Stop the container:
     podman container rm tprrt/debian-cross
 
 
-Following, an example of use to cross-compile Busybox and test it with Qemu:
+Following is an example of use to cross-compile Busybox and test it with Qemu:
 
 .. code-block:: bash
 
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
+    export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
 
     export LDFLAGS="--static"
 
@@ -59,13 +59,13 @@ Following, an example of use to cross-compile Busybox and test it with Qemu:
     qemu-aarch64-static busybox <applet>
 
 
-Following, an example of use to cross-compile U-Boot and test it with Qemu:
+Following is an example of use to cross-compile U-Boot and test it with Qemu:
 
 .. code-block:: bash
 
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
+    export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
 
     make qemu_arm64_defconfig
     make -j$(nproc)
@@ -73,13 +73,13 @@ Following, an example of use to cross-compile U-Boot and test it with Qemu:
 
     qemu-system-aarch64 -nographic -no-reboot -machine virt -cpu cortex-a57 -smp 2 -m 256 -bios u-boot.bin
 
-Following, an example of use to cross-compile the kernel Linux and test it with Qemu:
+Following is an example of use to cross-compile the Linux kernel and test it with Qemu:
 
 .. code-block:: bash
 
     export ARCH=arm64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
+    export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
 
     make defconfig
     make -j$(nproc)
@@ -93,21 +93,21 @@ Following, an example of use to cross-compile the kernel Linux and test it with 
 
 
 
-Following, the value of the environment variables to use the avaible toolchains:
+Following are the values of the environment variables to use the available toolchains:
 
 .. code-block:: bash
 
     # To use the ARMv7 toolchain
     export ARCH=arm
     export CROSS_COMPILE=arm-linux-
-    export export PATH=/armv7-eabihf--glibc--stable-2025.08-1/bin:$PATH
+    export PATH=/armv7-eabihf--glibc--stable-2025.08-1/bin:$PATH
 
     # To use the ARMv8 toolchain
     export ARCH=aarch64
     export CROSS_COMPILE=aarch64-linux-
-    export export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
+    export PATH=/aarch64--glibc--stable-2025.08-1/bin:$PATH
 
-    # To use the RISC-V toochain
+    # To use the RISC-V toolchain
     export ARCH=riscv
     export CROSS_COMPILE=riscv64-linux-
-    export export PATH=/riscv64-lp64d--glibc--stable-2025.08-1/bin:$PATH
+    export PATH=/riscv64-lp64d--glibc--stable-2025.08-1/bin:$PATH
