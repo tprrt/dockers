@@ -2,7 +2,7 @@
 LaTeX container
 ===============
 
-A container to prepare document with the`LaTeX`_ software system.
+A container to prepare documents with the `LaTeX`_ software system.
 
 ----
 
