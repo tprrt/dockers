@@ -29,7 +29,8 @@ RUN dnf -y update --refresh \
         valgrind \
     && dnf -y autoremove \
     && dnf -y clean all --enablerepo=\* \
-    && rm -rf /var/cache/dnf
+    && rm -rf /var/cache/dnf \
+    && ln -sf /usr/share/zoneinfo/UTC /etc/localtime
 
 RUN useradd -m devuser
 RUN usermod -a -G mock devuser
