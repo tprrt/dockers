@@ -34,10 +34,13 @@ Run the container:
     podman run --rm -i -t \
         --security-opt seccomp=unconfined --security-opt label=disable \
         --userns=keep-id:uid=$(id -u),gid=$(id -g) \
+        --device /dev/dri \
+        --device /dev/snd \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
-        -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e DISPLAY -e WAYLAND_DISPLAY= -v /tmp/.X11-unix:/tmp/.X11-unix \
         -e XDG_RUNTIME_DIR -v /run/user/$(id -u):/run/user/$(id -u) \
+        -e PULSE_SERVER=unix:/run/user/$(id -u)/pulse/native -e ALSOFT_DRIVERS=pulse \
         --pids-limit=0 \
         tprrt/ubuntu-ngdevkit
 

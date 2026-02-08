@@ -9,6 +9,7 @@ RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends software-properties-common \
     && add-apt-repository -y ppa:dciabrin/ngdevkit \
+    && apt-get update \
     && apt-get install -y --no-install-recommends \
         autoconf \
         automake \
@@ -20,8 +21,11 @@ RUN apt-get update \
         ngdevkit \
         ngdevkit-gngeo \
         pkg-config \
+        python3-pygame \
+        rsync \
         sox \
         locales \
+        which \
         zip \
     && apt-get -y autoremove --purge \
     && apt-get -y clean \
