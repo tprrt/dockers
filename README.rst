@@ -10,19 +10,20 @@
 Dockerfiles collection
 ======================
 
-A collection of Dockerfiles can be used with `Podman`_ and whose images are available on `DockerHub`_:
+A collection of Dockerfiles that can be used with `Podman`_ and whose images are available on `DockerHub`_:
 
 - `alpine-cmake`_: An environment to compile C source with cmake and to debug it with gdb.
 - `alpine-pxe`_: A `PXE`_/`TFTP`_ server to boot targets from the network.
 - `debian-buildroot`_: An environment to build Linux systems with the `Buildroot`_ framework.
-- `debian-cross`_: An cross-compile environment providing tools for armv7, aarch64 and riscv targets.
+- `debian-cross`_: A cross-compile environment providing tools for armv7, aarch64 and riscv targets.
 - `debian-gh`_: An environment that provides the official `Github CLI`_.
 - `debian-latex`_: An environment to prepare documents with the `LaTeX`_ software system.
-- `debian-devkitpro-arm`_: An environment that provides `_devkitPro`_, an open source game consoles devkit.
-- `debian-devkitpro-arm64`_: An environment that provides `_devkitPro`_, an open source game consoles devkit.
-- `debian-devkitpro-ppc`_: An environment that provides `_devkitPro`_, an open source game consoles devkit.
+- `debian-devkitpro-arm`_: An environment that provides `devkitPro`_, an open source game consoles devkit.
+- `debian-devkitpro-arm64`_: An environment that provides `devkitPro`_, an open source game consoles devkit.
+- `debian-devkitpro-ppc`_: An environment that provides `devkitPro`_, an open source game consoles devkit.
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 - `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_.
+- `fedora-ngdevkit`_: An environment that provides `ngdevkit`_, an open source Neo-Geo devkit.
 - `ubuntu-ngdevkit`_: An environment that provides `ngdevkit`_, an open source Neo-Geo devkit.
 
 Use the following command to pull the image of one of these containers:
@@ -34,8 +35,8 @@ Use the following command to pull the image of one of these containers:
 
 *Note*
 
-- `Podman`_ is a daemonless container engine, developped by the `OCI`_ and safer than the `Docker`_ engine.
-- The container `pixiecore`_ is a great alterative to the container `alpine-pxe`_.
+- `Podman`_ is a daemonless container engine, developed by the `OCI`_ and safer than the `Docker`_ engine.
+- The container `pixiecore`_ is a great alternative to the container `alpine-pxe`_.
 - The `debian-oe`_ is an alternative to the official container `crops/yocto`_.
 - The `debian-devkitpro` are an alternative to the official containers `devkitpro/docker`_.
 
@@ -60,6 +61,7 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 .. _fedora-dev: https://hub.docker.com/repository/docker/tprrt/fedora-dev
 .. _ubuntu-ngdevkit: https://hub.docker.com/repository/docker/tprrt/ubuntu-ngdevkit
+.. _fedora-ngdevkit: https://hub.docker.com/repository/docker/tprrt/fedora-ngdevkit
 
 .. _Buildroot: https://buildroot.org
 .. _circleci: https://circleci.com
