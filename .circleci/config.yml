@@ -275,6 +275,27 @@ workflows:
             - static-analysis
           context:
             - docker.io
+          cache_from: "tprrt/fedora-ngdevkit:latest"
+          image: "tprrt/fedora-ngdevkit"
+          path: fedora-ngdevkit
+          docker-context: fedora-ngdevkit
+          tag: "latest,$(date +%Y%m%d)"
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: false
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              ignore:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
           cache_from: "tprrt/ubuntu-ngdevkit:latest"
           image: "tprrt/ubuntu-ngdevkit"
           path: ubuntu-ngdevkit
@@ -545,6 +566,27 @@ workflows:
             - static-analysis
           context:
             - docker.io
+          cache_from: "tprrt/fedora-ngdevkit:latest"
+          image: "tprrt/fedora-ngdevkit"
+          path: fedora-ngdevkit
+          docker-context: fedora-ngdevkit
+          tag: "latest,$(date +%Y%m%d)"
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
           cache_from: "tprrt/ubuntu-ngdevkit:latest"
           image: "tprrt/ubuntu-ngdevkit"
           path: ubuntu-ngdevkit
@@ -736,6 +778,27 @@ workflows:
           image: "tprrt/fedora-dev"
           path: fedora-dev
           docker-context: fedora-dev
+          tag: "latest,$(date +%Y%m%d)"
+          registry: docker.io
+          update-description: false
+          use-docker-credentials-store: true
+          dockerfile: Dockerfile
+          readme: README.rst
+          deploy: true
+          lint-dockerfile: true
+      - docker/publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - static-analysis
+          context:
+            - docker.io
+          cache_from: "tprrt/fedora-ngdevkit:latest"
+          image: "tprrt/fedora-ngdevkit"
+          path: fedora-ngdevkit
+          docker-context: fedora-ngdevkit
           tag: "latest,$(date +%Y%m%d)"
           registry: docker.io
           update-description: false
