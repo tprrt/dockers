@@ -36,7 +36,7 @@ Run the container:
         --workdir /tftp/pxelinux.cfg \
         --cap-add=NET_ADMIN --cap-add=NET_RAW \
         --net host \
-        --iterface <eth> \
+        --interface <eth> \
         -p 69:69/udp \
         -p 4011:4011/udp \
         tprrt/alpine-pxe
@@ -54,7 +54,7 @@ Stop the container:
     firewall-cmd --remove-port=4011/udp
 
 
-Following an example for /tftp/pxelinux.cfg/default:
+Following is an example for /tftp/pxelinux.cfg/default:
 
 .. code-block:: bash
 
