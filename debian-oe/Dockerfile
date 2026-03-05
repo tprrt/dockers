@@ -63,7 +63,7 @@ RUN apt-get update \
     && locale-gen en_US.UTF-8 \
     && update-locale
 
-RUN pip3 install --break-system-packages --no-cache-dir kas==4.7
+RUN pip3 install --break-system-packages --no-cache-dir kas==5.2
 
 RUN mkdir /tmp/qemu-tap-locks && touch /tmp/qemu-tap-locks/tap0.skip
 
