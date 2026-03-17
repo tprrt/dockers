@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2020-2026 Thomas Perrot <thomas.perrot@tupi.fr>
 
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
@@ -25,7 +25,7 @@ RUN apt-get update \
         iputils-ping \
         iptables \
         less \
-        libegl1-mesa \
+        libegl1 \
         libsdl1.2-dev \
         locales \
         lz4 \
