@@ -6,7 +6,7 @@ A container to build a complete Linux system with the following branches of the
 `OpenEmbedded`_ framework used by the `Yocto Project`_:
 
 - master
-- Kirkstone (LTS)
+- Wrynose (LTS)
 - Scarthgap (LTS)
 
 ----
