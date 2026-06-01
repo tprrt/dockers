@@ -36,6 +36,7 @@ Run the container:
         --userns=keep-id:uid=$(id -u),gid=$(id -g) \
         --device /dev/dri \
         --device /dev/snd \
+        --device /dev/input \
         --mount type=bind,source=$(pwd),target=/src \
         --workdir /src \
         -e DISPLAY -e WAYLAND_DISPLAY= -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -43,6 +44,52 @@ Run the container:
         -e PULSE_SERVER=unix:/run/user/$(id -u)/pulse/native -e ALSOFT_DRIVERS=pulse \
         --pids-limit=0 \
         tprrt/fedora-ngdevkit
+
+
+Build `ngdevkit-examples`_:
+
+.. code-block:: bash
+
+    xhost +"local:podman@"
+
+    cd <ngdevkit-examples>
+    podman run --rm -i -t \
+        --security-opt seccomp=unconfined --security-opt label=disable \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
+        --device /dev/dri \
+        --device /dev/snd \
+        --device /dev/input \
+        --mount type=bind,source=$(pwd),target=/src \
+        --workdir /src \
+        -e DISPLAY -e WAYLAND_DISPLAY= -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e XDG_RUNTIME_DIR -v /run/user/$(id -u):/run/user/$(id -u) \
+        -e PULSE_SERVER=unix:/run/user/$(id -u)/pulse/native -e ALSOFT_DRIVERS=pulse \
+        --pids-limit=0 \
+        tprrt/fedora-ngdevkit \
+        bash -c "autoreconf -iv && ./configure && make"
+
+
+Run an example from `ngdevkit-examples`_:
+
+.. code-block:: bash
+
+    xhost +"local:podman@"
+
+    cd <ngdevkit-examples>/01-helloworld
+    podman run --rm -i -t \
+        --security-opt seccomp=unconfined --security-opt label=disable \
+        --userns=keep-id:uid=$(id -u),gid=$(id -g) \
+        --device /dev/dri \
+        --device /dev/snd \
+        --device /dev/input \
+        --mount type=bind,source=$(pwd),target=/src \
+        --workdir /src \
+        -e DISPLAY -e WAYLAND_DISPLAY= -v /tmp/.X11-unix:/tmp/.X11-unix \
+        -e XDG_RUNTIME_DIR -v /run/user/$(id -u):/run/user/$(id -u) \
+        -e PULSE_SERVER=unix:/run/user/$(id -u)/pulse/native -e ALSOFT_DRIVERS=pulse \
+        --pids-limit=0 \
+        tprrt/fedora-ngdevkit \
+        bash -c "make gngeo"
 
 
 Stop the container:

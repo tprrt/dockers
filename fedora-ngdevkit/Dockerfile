@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2020-2026 Thomas Perrot <thomas.perrot@tupi.fr>
 
-FROM fedora:42
+FROM fedora:43
 
 LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
