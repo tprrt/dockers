@@ -24,7 +24,6 @@ A collection of Dockerfiles that can be used with `Podman`_ and whose images are
 - `debian-oe`_: An environment to build Linux systems with the `OpenEmbedded`_ framework / `Yocto`_ project.
 - `fedora-dev`_: An environment providing tools to develop an application for `Fedora`_.
 - `fedora-ngdevkit`_: An environment that provides `ngdevkit`_, an open source Neo-Geo devkit.
-- `ubuntu-ngdevkit`_: An environment that provides `ngdevkit`_, an open source Neo-Geo devkit.
 
 Use the following command to pull the image of one of these containers:
 
@@ -60,7 +59,6 @@ Use the following command to validate the `circleci`_ pipeline:
 .. _debian-latex: https://hub.docker.com/repository/docker/tprrt/debian-latex
 .. _debian-oe: https://hub.docker.com/repository/docker/tprrt/debian-oe
 .. _fedora-dev: https://hub.docker.com/repository/docker/tprrt/fedora-dev
-.. _ubuntu-ngdevkit: https://hub.docker.com/repository/docker/tprrt/ubuntu-ngdevkit
 .. _fedora-ngdevkit: https://hub.docker.com/repository/docker/tprrt/fedora-ngdevkit
 
 .. _Buildroot: https://buildroot.org
