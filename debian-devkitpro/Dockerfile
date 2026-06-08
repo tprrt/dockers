@@ -9,27 +9,27 @@ RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get install -y --no-install-recommends \
         apt-utils \
-	bash \
-	bzip2 \
+        bash \
+        bzip2 \
         ca-certificates \
-	curl \
-	doxygen \
+        curl \
+        doxygen \
         dumb-init \
         git \
-	git-restore-mtime \
-	gnupg \
+        git-restore-mtime \
+        gnupg \
         rsync \
         cmake zip unzip ninja-build \
-	libarchive-tools \
+        libarchive-tools \
         locales \
-	make \
+        make \
         patch \
-	pkg-config \
+        pkg-config \
         python3 \
-	python-is-python3 \
-	python3-lz4 \
-	wget \
-	xz-utils \
+        python-is-python3 \
+        python3-lz4 \
+        wget \
+        xz-utils \
     && apt-get -y autoremove --purge \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
