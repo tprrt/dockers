@@ -3,7 +3,7 @@
 
 orbs:
   docker: circleci/docker@2.8.2
-  sonarcloud: sonarsource/sonarcloud@2.0.0
+  sonarcloud: sonarsource/sonarcloud@4.0.0
 version: 2.1
 executors:
   docker-sonarcloud:
