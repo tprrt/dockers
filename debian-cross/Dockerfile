@@ -6,7 +6,7 @@ FROM debian:trixie-slim
 LABEL maintainer="Thomas Perrot thomas.perrot@tupi.fr"
 
 ENV VERSION="stable"
-ENV RELEASE="2025.08-1"
+ENV RELEASE="2026.08-1"
 
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
